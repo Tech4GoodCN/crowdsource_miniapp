@@ -29,7 +29,7 @@ String|Object<province: String, city: String>|String|File|String|String|String|S
 
 ### ***Table Name: Requirement***
 
-|organization_name|organization|requirement_cat|poeple_covered|project_name|project_intro|project_field|task_intro|signup_reqs|work_methode|work_place|w​ork_length|work_frequency|
+|organization_name|organization|requirement_cat|people_covered|project_name|project_intro|project_field|task_intro|signup_reqs|work_methode|work_place|w​ork_length|work_frequency|
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 |String|Pointer< Organization >|Object< large: String, small: String>|String|Object<isDaily: Boolean, name: String >|Object<isDaily: Boolean, intro: String>|Array< String >|String|String|Object <online:Boolean, offline:Boolean, both:Boolean>|Object<province: String, city: String>|Object<isDaily: Boolean, startTime: Date, endTime: Date>|Object<daysAWeek: Number, hoursADay: Number>|
 |*组织名称（最好多选）|*组织指针(不是公益组织填写的，我们通过代码找到Organization对象后设置)|**需求类别*|*服务人群|*项目名称（日常的话不需项目名称）|*项目介绍（日常的话不需项目介绍）|*项目领域|*任务描述|*报名要求|*线上还是线下|工作城市|*工作周期|工作时长|
