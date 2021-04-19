@@ -3,7 +3,29 @@
     "pages/index/index",
     "pages/logs/logs"
   ],
+  "tabBar":{
+    "position": "bottom",
+    "color":"#7A7E83",
+    "selectedColor": "#13227a",
+    "borderStyle":"black",
+    "backgroundColor":"#ffffff",
+    "list":[
+      {
+        "pagePath":"pages/index/index",
+        "iconPath": "",
+        "selectedIconPath": "",
+        "text": "项目需求"
+      },
+      {
+        "pagePath":"pages/logs/logs",
+        "iconPath": "",
+        "selectedIconPath": "",
+        "text": "需求详情"
+      }
+    ]
+  },
   "window":{
+    "navigationStyle": "default",
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Weixin",
