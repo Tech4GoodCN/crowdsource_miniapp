@@ -1,24 +1,41 @@
-<view class="container">
-  <view class="title">VIVA生命画像馆-周边产品设计</view>
-  <image src="/image/star.png" class="star"></image>
-  <view class="subtitle">
-    <text>上海/线上｜</text>
-    <text>3月16日-3月20日 每天4小时</text>
-  </view>
-  <view class="manytag">
-    <view class="tag1">CS</view>
-    <view class="tag2">前端</view>
-  </view>
-  <view class="info">
-    <image src="/image/square.png" class="icon" mode="widthFix"></image>
-    <view class="infotext">
-      <view class="infotitle">益科技</view>
-      <view class="manytag">
-        <view class="tag1">环境保护</view>
-        <view class="tag2">性别平等</view>
-      </view>
-      <view class="infocontent">UX Design, Web Development...等10个ProjectUX Design, Web Development...等10个Project</view>
+<view class="title">{{demand_title}}</view>
+<image src="{{isActive?'/image/star.png':'/image/starselected.png'}}" class="star" bindtap="star"></image>
+<view class="{{isActive?'startext':'startextselected'}}">{{isActive?'未收藏':'收藏'}}</view>
+<view class="subtitle">
+  <text>{{location}}｜</text>
+  <text>{{time}}</text>
+</view>
+<view class="manytag">
+  <view class="tag1">{{tag1}}</view>
+  <view class="tag2">{{tag2}}</view>
+  <view class="tag2">{{tag2}}</view>
+  <view class="tag2">{{tag2}}</view>
+</view>
+
+<view class="info">
+  <image src="/image/square.png" class="icon" mode="widthFix"></image>
+  <view class="infotext">
+    <view class="infotitle">{{ngo_name}}</view>
+    <view class="manytag">
+      <view class="tag3">{{tag3}}</view>
+      <view class="tag4">{{tag4}}</view>
+    </view>
+    <view class="infocontent">{{position}}...等{{number_position}}个Project
     </view>
   </view>
 </view>
 
+<view class="title2">服务受众</view>
+<view class="content2">{{people}}</view>
+<view class="title3">任务背景</view>
+<view class="content2">{{background}}</view>
+<view class="title3">任务职责</view>
+<view class="content2">{{responsibility}}</view>
+<view class="title3">报名要求</view>
+<view class="content2">{{requirement1}}</view>
+<view class="content2">{{requirement2}}</view>
+<view class="content3">{{requirement3}}</view>
+
+<view class="container">
+  <button class="{{sub?'submit':'submitted'}}" bindtap="submit">{{sub?'投递简历':'已投递'}}</button>
+</view>

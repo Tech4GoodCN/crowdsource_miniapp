@@ -25,7 +25,6 @@ color: #4F4F4F;
 position: relative;
 width: 340px;
 height: 130px;
-left: 18px;
 margin-top: 30rpx;
 background: #FFFFFF;
 box-shadow: 0px 4px 14px rgba(189, 187, 187, 0.25);

@@ -45,6 +45,7 @@ color: #000000;
   background: #CFDBEC;
   border-radius: 4px;
   margin-left: 40rpx;
+  margin-top: 180rpx;
   text-align: center;
   font-family: PingFang SC;
   font-style: normal;
@@ -54,6 +55,22 @@ color: #000000;
   color: #000000;
   padding-top: 7rpx;
   }
+
+  .tag3{
+    width: 67px;
+    height: 21px;
+    background: #CFDBEC;
+    border-radius: 4px;
+    margin-left: 40rpx;
+    text-align: center;
+    font-family: PingFang SC;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 15px;
+    color: #000000;
+    padding-top: 7rpx;
+    }
   
   .tagtext{
   font-family: PingFang SC;
@@ -76,6 +93,7 @@ color: #000000;
     background:#DEE0E3;
     border-radius: 4px;
     margin-left: 30rpx;
+    margin-top: 180rpx;
     text-align: center;
     font-family: PingFang SC;
     font-style: normal;
@@ -86,14 +104,29 @@ color: #000000;
     padding-top: 7rpx;
     }
 
+    .tag4{
+      width: 67px;
+      height: 21px;
+      background:#DEE0E3;
+      border-radius: 4px;
+      margin-left: 30rpx;
+      text-align: center;
+      font-family: PingFang SC;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 11px;
+      line-height: 15px;
+      color: #000000;
+      padding-top: 7rpx;
+      }
+
 .info{
   display: flex;
   flex-direction: row;
-  position: absolute;
   width: 336px;
   height: 163px;
-  left: 20px;
-  top: 145px;
+  margin-top: 50rpx;
+  margin-left: 40rpx;
   background: #FFFFFF;
   box-shadow: 0px 4px 14px rgba(189, 187, 187, 0.25);
   border-radius: 8px;
@@ -141,6 +174,119 @@ margin-right: 45rpx;
   position: absolute;
   width: 25px;
   height: 25px;
-  left: 310px;
-  top: 13px;
+  right: 50rpx;
+  top: 30rpx;
 }
+
+.startext{
+  position: absolute;
+  right: 50rpx;
+  top: 40px;
+  font-family: Arima Madurai;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 9px;
+  line-height: 15px;
+  color: #979797;
+}
+
+.startextselected{
+  position: absolute;
+ right: 57rpx;
+  top: 40px;
+  font-family: Arima Madurai;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 9px;
+  line-height: 15px;
+  color: #979797;
+}
+
+.title2{
+margin-top: 50rpx;
+margin-left: 50rpx;
+font-family: PingFang SC;
+font-style: normal;
+font-weight: 500;
+font-size: 15px;
+line-height: 21px;
+display: flex;
+align-items: center;
+color: #333333;
+}
+
+.content2{
+margin-top: 30rpx;
+margin-left: 60rpx;
+margin-right: 60rpx;
+font-family: PingFang SC;
+font-style: normal;
+font-weight: normal;
+font-size: 13px;
+line-height: 150%;
+letter-spacing: 0.01em;
+color: #4F4F4F;
+}
+
+.content3{
+  margin-top: 30rpx;
+  margin-left: 60rpx;
+  margin-right: 60rpx;
+  margin-bottom: 150rpx;
+  font-family: PingFang SC;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 150%;
+  letter-spacing: 0.01em;
+  color: #4F4F4F;
+  }
+
+.title3{
+  margin-top: 50rpx;
+  margin-left: 50rpx;
+  font-family: PingFang SC;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  color: #333333;
+  }
+
+  .submit{
+  position: fixed;
+  bottom: 30rpx;
+  align-self: center;
+  width: 171px;
+  height: 41px;
+  background: #EA6A6A;
+  border-radius: 40px;
+  font-family: PingFang SC;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+  align-items: center;
+  text-align: center;
+  color: #F3F3F3;
+  }
+
+  .submitted{
+  position: fixed;
+  bottom: 30rpx;
+  align-self: center;
+  width: 171px;
+  height: 41px;
+  border-radius: 40px;
+  font-family: PingFang SC;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+  align-items: center;
+  text-align: center;
+  color: #F3F3F3;
+  background: #B2B2B2;
+  }
