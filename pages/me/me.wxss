@@ -1,0 +1,158 @@
+page {
+  background-color: rgb(255, 255, 255);
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /**padding: 200rpx 0;**/
+  box-sizing: border-box;
+} 
+
+.avatar{
+  width: 120rpx; 
+  height: 120rpx; 
+  border-radius: 50%;
+  margin-top: 50rpx;
+  margin-left: 50rpx;
+}
+
+.username{
+  font-family: PingFang SC;
+  font-style: larger;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 25px;
+  color: #000000;
+  margin-left: 50rpx;
+}
+
+
+.resume{
+  position: relative;
+  width: 305px;
+  height: 60px;
+  margin-top: 100rpx;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 14px rgba(189, 187, 187, 0.25);
+  border-radius: 8px;
+}
+
+.resume2{
+  position: relative;
+  width: 305px;
+  height: 60px;
+  margin-top: 80rpx;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 14px rgba(189, 187, 187, 0.25);
+  border-radius: 8px;
+}
+
+.flex{
+  display: flex;
+  flex-direction: row;
+}
+
+.img{
+  width: 60rpx; 
+  height: 60rpx; 
+  border-radius: 50%;
+  position: absolute;
+  left: 5%;
+  top: 25%;
+  background: #FFFFFF;
+}
+
+.wx{
+  position: absolute;
+  left: 20%;
+  top: 30%;
+  bottom: 23.43%;
+  font-family: PingFang SC;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  color: #000000;
+}
+
+.NavigatorRight{
+  width: 60rpx; 
+  height: 60rpx; 
+  border-radius: 50%;
+  position: absolute;
+  right: 5%;
+  top: 25%;
+  background: #FFFFFF;
+}
+
+.logout{
+position: relative;
+width: 130px;
+height: 42px;
+background: #EA6A6A;
+box-shadow: 0px 4px 14px rgba(189, 187, 187, 0.25);
+border-radius: 5px;
+margin-top: 100rpx;
+}
+
+.logout_text{
+font-family: PingFang SC;
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 20px;
+color: #FFFFFF;
+text-align: center;
+padding:20rpx;
+}
+
+.xinxi{
+  width: 120rpx; 
+  height: 120rpx; 
+  position: fixed;
+  left: 20%;
+  bottom: 12%;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 14px rgba(189, 187, 187, 0.25);
+  border-radius: 50%;
+}
+
+.xinxi2{
+  width: 120rpx; 
+  height: 120rpx; 
+  position: fixed;
+  right: 20%;
+  bottom: 12%;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 14px rgba(189, 187, 187, 0.25);
+  border-radius: 50%;
+}
+
+.yijian{
+position: fixed;
+left: 22%;
+bottom: 7%;
+font-family: PingFang SC;
+font-style: normal;
+font-weight: normal;
+font-size: 11px;
+line-height: 15px;
+color: #000000;
+}
+
+.guanyu{
+position: fixed;
+right: 22%;
+bottom: 7%;
+font-family: PingFang SC;
+font-style: normal;
+font-weight: normal;
+font-size: 11px;
+line-height: 15px;
+color: #000000;
+}
+
+
