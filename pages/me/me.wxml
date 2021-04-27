@@ -11,13 +11,13 @@
 
 <view class="container">
 <view class="resume flex" bindtap="resume_cannot">
-  <image src="/image/diary.png" class="img"></image>
+  <image src="/image/shangchuan.png" class="img"></image>
   <view class="wx">上传简历</view>
   <image src="/image/NavigatorRight.png" class="NavigatorRight"></image>
 </view>
 
 <view class="resume2 flex">
-  <image src="/image/star.png" class="img"></image>
+  <image src="/image/starselected.png" class="img"></image>
   <view class="wx">我的收藏</view>
   <image src="/image/NavigatorRight.png" class="NavigatorRight"></image>
 </view>
