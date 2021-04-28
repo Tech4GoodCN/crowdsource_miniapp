@@ -3,6 +3,7 @@ Page({
   data: {
     isActive: true,
     sub:true,
+    req_objId: "_",
     demand_title: "生命生命画像馆生名周边产品设计",
     location:"上海/线下",
     time:"3月16日-3月20日 每天4小时",
@@ -19,6 +20,13 @@ Page({
     requirement1:"- 能够以专业态度跟相关组织/公司进行电话访问或探讨；可在短时间内建立行业知识",
     requirement2:"- 具备较强的分析和报告能力",
     requirement3:"- 有过市场研究相关经验者优先"
+  },
+
+  onLoad:function(options) {
+    console.log(options)
+    this.setData({
+      req_objId: options.req_objId
+    })
   },
 
   star:function(){

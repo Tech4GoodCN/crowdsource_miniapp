@@ -5,6 +5,7 @@ const app = getApp()
 Page({
   data: {
     TabCur: 0,
+    req_objId: "loremipsum",
     demand_title: "VIVA生命画像馆——周边产品设计",
     tag1:"教育升级",
     tag2:"文化保育",
@@ -19,9 +20,11 @@ Page({
       TabCur: e.currentTarget.dataset.id,
     })
   },
-  detail(){
+  showDetailPage: function(e){
+    var req_objId = e.currentTarget.dataset.req_objid; // need to be all lowercase; i.e. can't be dataset.req_objId
+    console.log(req_objId)
     wx.navigateTo({
-      url: '/pages/logs/logs',
+      url: '/pages/logs/logs?req_objId=' + req_objId
     })
   }
 })
