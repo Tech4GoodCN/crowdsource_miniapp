@@ -1,12 +1,29 @@
-
 <view class="flex padding align-center">
-  <image src="/image/square.png" class="avatar"></image>
-  <block wx:if="{{log==true}}">
+  <!-- <button wx:if="{{true}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+  <view wx:else>请升级微信版本</view> -->
+  <block wx:if="{{!hasUserInfo}}">
+    <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 点击登录 </button>
+    <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+  </block>
+  <block wx:else>
+    <image bindtap="bindViewTap" src="{{userInfo.avatarUrl}}" class="avatar"></image>
+    <text class="username">{{userInfo.nickName}}</text>
+  </block>
+
+<!-- 
+  <block wx:if="{{!hasUserInfo}}">
+    <image src="/image/square.png" class="avatar"></image>
+  </block>
+  <block wx:else>
+
+  </block> -->
+  
+  <!-- <block wx:if="{{log==true}}">
     <view class="username">Eric.W</view>
   </block>
   <block wx:if="{{log==false}}">
     <view class="username">登陆/注册</view>
-  </block>
+  </block> -->
 </view>
 
 <view class="container">
