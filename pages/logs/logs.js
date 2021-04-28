@@ -25,7 +25,7 @@ Page({
   onLoad:function(options) {
     console.log(options)
     this.setData({
-      req_objId: options.req_objId
+      req_objId: JSON.parse(options.req_objId)
     })
   },
 

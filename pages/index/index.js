@@ -24,7 +24,7 @@ Page({
     var req_objId = e.currentTarget.dataset.req_objid; // need to be all lowercase; i.e. can't be dataset.req_objId
     console.log(req_objId)
     wx.navigateTo({
-      url: '/pages/logs/logs?req_objId=' + req_objId
+      url: '/pages/logs/logs?req_objId=' + JSON.stringify(req_objId)
     })
   }
 })
