@@ -1,4 +1,4 @@
-
+const app = getApp()
 Page({
   data: {
     isActive: true,
@@ -22,29 +22,26 @@ Page({
   },
 
   star:function(){
-    //if (condition) {
-      //如果没登陆，弹出登陆框
-    //} else {
-      var isActive;
+    if (!app.globalData.userInfo) {
+      console.log('cannot like due to not log in')
+    } else {
       this.setData({
         isActive : ! this.data.isActive
       })
-    //}
+    }
   },
-
   submit:function(){
-    //if (condition) {
-      //如果没登陆，弹出登陆框
-    //} else {
-      //sub的数据后期要改成上传简历后返回的值，这里是为了测试button是否可以成功变灰
-      var sub;
+    if (!app.globalData.userInfo) {
+      // 如果没登陆，弹出登陆框
+      console.log('cannot submit resume due to not log in')
+    } else {
+      // sub的数据后期要改成上传简历后返回的值，这里是为了测试button是否可以成功变灰
       this.setData({
       sub : false
       }),
       wx.navigateTo({
         url: '/pages/logs/submit/submit',
       })
-    //}
+    }
   }
-
 })

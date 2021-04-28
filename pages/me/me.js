@@ -1,64 +1,34 @@
 // pages/me/me.js
+const app = getApp()
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    log:true
+    hasUserInfo: false
   },
-
-  resume_cannot:function(){
-    wx.chooseImage({
-      count: 1,
-      type: ['file'],
-      success: function(res) {
-        var tempFilePath = res.tempFilePaths[0];
-        // 使用本地临时文件的路径构造 AV.File
-        new AV.File('file-name', {
-          blob: {
-            uri: tempFilePath,
-          },
-        })
-          // 上传
-          .save()
-          // 上传成功
-          .then(file => console.log(file.url()))
-          // 上传发生异常
-          .catch(console.error);
-      }
-    });
-  },
-
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // if (condition) {
-    //   //判断如果已登陆，log值为true
-    // } else {
-    //   //判断如果没登陆，log值为false
-    // }
     if (wx.getUserProfile) {
       this.setData({
           canIUseGetUserProfile: true
       })
-    }
-    
+    };
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    const AV = this.initDB()
     wx.checkSession({
         success() {
             // session_key 未过期，并且在本生命周期一直有效
@@ -110,27 +80,32 @@ Page({
 
   },
   
+  initDB: function(e){
+    const AV = require('../../libs/av-core-min.js');
+    const adapters = require('../../libs/leancloud-adapters-weapp.js');
+    AV.setAdapters(adapters);
+    AV.init({
+        appId: app.globalData.leancloudId,
+        appKey: app.globalData.leancloudKey,
+        serverURLs: app.globalData.leancloudURL,
+    })
+    return AV
+  },
   getUserProfile: function (e) {
     // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认
     // 开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
     wx.getUserProfile({
         desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
         success: (res) => {
+            app.globalData.userInfo = res.userInfo
             this.setData({
                 userInfo: res.userInfo,
-                hasUserInfo: true
+                hasUserInfo: true,
+                
             })
         }
     })
   },
-  getUserInfo: function (e) {
-      // 不推荐使用getUserInfo获取用户信息，预计自2021年4月13日起，getUserInfo将不再弹出弹窗，并直接返回匿名的用户个人信息
-      this.setData({
-          userInfo: e.detail.userInfo,
-          hasUserInfo: true
-      })
-  },
-  
   bindGetUserInfo: function(e){
     wx.getSetting({
       success(res) {
@@ -145,6 +120,22 @@ Page({
       }
     })
   },
-
-
+  upload_resume:function(e){
+    wx.chooseImage({
+      count: 1,
+      type: 'file',
+      success: function(res) {
+        var tempFilePath = res.tempFilePaths[0];
+        // 使用本地临时文件的路径构造 AV.File
+        new AV.File('file-name', {
+          blob: {
+            uri: tempFilePath,
+          },
+        })
+          .save()
+          .then(file => console.log(file.url()))
+          .catch(console.error);
+      }
+    });
+  },
 })

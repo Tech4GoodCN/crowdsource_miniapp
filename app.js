@@ -13,18 +13,30 @@ App({
             }
         })
     },
+    onShow(){
+        const AV = require('./libs/av-core-min.js');
+        const adapters = require('./libs/leancloud-adapters-weapp.js');
+        AV.setAdapters(adapters);
+        AV.init({
+            appId: '{{leancloudId}}',
+            appKey: '{{leancloudKey}}',
+            serverURLs: '{{leancloudURL}}',
+        })
+    },
     globalData: {
-        userInfo: null
+        userInfo: null,
+        leancloudId: 'NdCkOyRxT5xXE7VA9GLyAXCf-gzGzoHsz',
+        leancloudKey: 'n55hgBBMiWT1iSSPcqiSAOOQ',
+        leancloudURL: 'https://ndckoyrx.lc-cn-n1-shared.com'
     }
 })
 
-const AV = require('./libs/av-core-min.js');
-const adapters = require('./libs/leancloud-adapters-weapp.js');
+// const AV = require('./libs/av-core-min.js');
+// const adapters = require('./libs/leancloud-adapters-weapp.js');
 
-AV.setAdapters(adapters);
-AV.init({
-    appId: '{{appid}}',
-    appKey: '{{appkey}}',
-    // 请将 xxx.example.com 替换为你的应用绑定的自定义 API 域名 （暂时还没有配置）
-    serverURLs: "https://xxx.example.com",
-});
+// AV.setAdapters(adapters);
+// AV.init({
+//     appId: '{{appid}}',
+//     appKey: '{{appkey}}',
+//     serverURLs: "https://ndckoyrx.lc-cn-n1-shared.com",
+// });
