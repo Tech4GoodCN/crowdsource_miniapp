@@ -5,6 +5,7 @@ Page({
     requirement:{},
     imgUrl:'',
     intro:'',
+    serviceField:[],
     isActive: true,
     sub: true,
     startTime:'',
@@ -42,7 +43,8 @@ Page({
       organization=organization.toJSON()
       this.setData({
         imgUrl:organization.logo.url,
-        intro: organization.intro
+        intro: organization.intro,
+        serviceField: organization.service_fields
       })
     });
   },

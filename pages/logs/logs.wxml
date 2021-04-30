@@ -22,8 +22,9 @@
   <view class="infotext">
     <view class="infotitle">{{requirement.organization_name}}</view>
     <view class="manytag">
-      <view class="tag3">{{tag3}}</view>
-      <view class="tag4">{{tag4}}</view>
+      <block wx:for="{{serviceField}}" wx:key="this">
+        <view class="tag3">{{item}}</view>
+      </block>
     </view>
     <view class="infocontent">
       <text class="organization-intro">{{intro}}</text>
