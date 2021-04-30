@@ -18,14 +18,15 @@
 </view>
 
 <view class="info">
-  <image src="/image/square.png" class="icon" mode="widthFix"></image>
+  <image src="{{imgUrl}}" class="icon" mode="widthFix"></image>
   <view class="infotext">
     <view class="infotitle">{{requirement.organization_name}}</view>
     <view class="manytag">
       <view class="tag3">{{tag3}}</view>
       <view class="tag4">{{tag4}}</view>
     </view>
-    <view class="infocontent">{{position}}...等{{number_position}}个Project
+    <view class="infocontent">
+      <text class="organization-intro">{{intro}}</text>
     </view>
   </view>
 </view>

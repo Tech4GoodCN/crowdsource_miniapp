@@ -163,13 +163,19 @@ font-family: PingFang SC;
 font-style: normal;
 font-weight: 300;
 font-size: 11px;
-line-height: 15px;
 color: #000000;
 margin-left: 45rpx;
 margin-top: 20rpx;
 margin-right: 45rpx;
 }
-
+.organization-intro{
+  text-overflow:ellipsis;
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
 .star{
   position: absolute;
   width: 25px;
