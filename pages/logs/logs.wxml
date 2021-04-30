@@ -1,21 +1,26 @@
-<view class="title">{{demand_title}}</view>
+<view class="title">{{requirement.project_name.name}}</view>
 <image src="{{isActive?'/image/star.png':'/image/starselected.png'}}" class="star" bindtap="star"></image>
 <view class="{{isActive?'startext':'startextselected'}}">{{isActive?'未收藏':'收藏'}}</view>
 <view class="subtitle">
-  <text>{{location}}｜</text>
-  <text>{{time}}</text>
+  <text>{{requirement.location.city}}/</text>
+  <text hidden="{{!requirement.work_method.online}}">线上 | </text>
+  <text hidden="{{!requirement.work_method.offline}}">线下 | </text>
+  <text hidden="{{!requirement.work_method.both}}">线上+线下 | </text>
+  <text wx:if="{{startTime}}">{{startTime}}-</text>
+  <text wx:if="{{endTime}}">{{endTime}} </text>
+  <text>{{requirement.work_frequency.daysAWeek}}天/周 </text>
+  <text>{{requirement.work_frequency.hoursADay}}小时/天 </text>
 </view>
 <view class="manytag">
-  <view class="tag1">{{tag1}}</view>
-  <view class="tag2">{{tag2}}</view>
-  <view class="tag2">{{tag2}}</view>
-  <view class="tag2">{{tag2}}</view>
+    <block wx:for="{{requirement.project_fields}}" wx:key="this">
+      <view class="tag1">{{item}}</view>
+    </block>
 </view>
 
 <view class="info">
   <image src="/image/square.png" class="icon" mode="widthFix"></image>
   <view class="infotext">
-    <view class="infotitle">{{ngo_name}}</view>
+    <view class="infotitle">{{requirement.organization_name}}</view>
     <view class="manytag">
       <view class="tag3">{{tag3}}</view>
       <view class="tag4">{{tag4}}</view>
@@ -28,16 +33,14 @@
 <view class="title2">ObjectId（仅测试用）</view>
 <view class="content2">{{req_objId}}</view>
 <view class="title2">服务受众</view>
-<view class="content2">{{people}}</view>
-<view class="title3">任务背景</view>
-<view class="content2">{{background}}</view>
+<view class="content2">{{requirement.people_covered}}</view>
+<view class="title3" hidden="{{requirement.project_intro.isDaily}}">任务背景</view>
+<view class="content2">{{requirement.project_intro.intro}}</view>
 <view class="title3">任务职责</view>
-<view class="content2">{{responsibility}}</view>
+<view class="content2">{{requirement.task_intro}}</view>
 <view class="title3">报名要求</view>
-<view class="content2">{{requirement1}}</view>
-<view class="content2">{{requirement2}}</view>
-<view class="content3">{{requirement3}}</view>
-
+<view class="content2">{{requirement.signup_reqs}}</view>
+<view style="height:130rpx;width:100%;"></view>
 <view class="container">
   <button class="{{sub?'submit':'submitted'}}" bindtap="submit">{{sub?'投递简历':'已投递'}}</button>
 </view>

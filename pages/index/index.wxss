@@ -69,6 +69,8 @@ color: #000000;
 
 .manytag{
   display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .tag2{
@@ -110,10 +112,19 @@ color: #000000;
 }
 
 .location{
-  position: relative;
-  left: 320rpx;
+  position: fixed;
+  float: right;
+  right: 65rpx;
   color: #B2B2B2;
   font-size: 12px;
-  line-height: 17px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.bottom {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 

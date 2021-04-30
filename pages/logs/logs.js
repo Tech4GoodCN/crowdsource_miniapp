@@ -1,6 +1,10 @@
-
+const AV = require('../../libs/av-core-min.js');
+const util = require('../../utils/util.js');
 Page({
   data: {
+    requirement:{},
+    startTime: '',
+    endTime: '',
     isActive: true,
     sub:true,
     req_objId: "_",
@@ -27,8 +31,22 @@ Page({
     this.setData({
       req_objId: JSON.parse(options.req_objId)
     })
+    this.getRequirement()
   },
-
+  getRequirement() {
+    const query = new AV.Query('Requirement');
+    query.get(this.data.req_objId).then((requirement) => {
+      this.setData({
+        requirement:requirement.toJSON()
+      })
+    });
+    const stime=util.formatTime(this.data.requirement.work_length.startTime);
+    const etime=util.formatTime(this.data.requirement.work_length.endTime);
+    this.setData({
+      startTime:stime,
+      endTime:eTime
+    })
+  },
   star:function(){
     //if (condition) {
       //如果没登陆，弹出登陆框
