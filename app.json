@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/me/me"
+    "pages/me/me",
+    "pages/orgs/orgs"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -13,16 +14,23 @@
   "style": "v2",
   "sitemapLocation": "sitemap.json",
   "tabBar": {
-    "color":"#666666",
-    "selectedColor":"#06bd04",
-    "list": [{
-     "pagePath": "pages/index/index",
-     "text": "首页",
-     "iconPath": "image/about.png",
-     "selectedIconPath": "image/diary.png"
-    },{
-     "pagePath": "pages/me/me",
-     "text": "我的"
-    }]
+    "color": "#666666",
+    "selectedColor": "#06bd04",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "好项目",
+        "iconPath": "image/about.png",
+        "selectedIconPath": "image/diary.png"
+      },
+      {
+        "pagePath": "pages/orgs/orgs",
+        "text": "好组织"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我真棒"
+      }
+    ]
   }
 }

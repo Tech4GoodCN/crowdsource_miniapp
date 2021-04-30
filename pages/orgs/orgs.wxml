@@ -1,0 +1,76 @@
+<view class="container">
+  <view class="row">
+    <!-- NGO information, need to use for statement to iterate -->
+    <!-- Vicky is quite lazy so she just hardcode it first -->
+    <view class="info" bindtap="orgDetail">
+      <image src="/image/square.png" class="icon" mode="widthFix"></image>
+      <view class="infotext">
+        <view class="infotitle">{{ngo_name}}</view>
+        <view class="manytag">
+          <view class="tags">{{tag3}}</view>
+          <view class="tags">{{tag4}}</view>
+        </view>
+        <view class="infocontent">{{position}}...等{{number_position}}个Project</view>
+      </view>
+    </view>
+    <view class="info">
+      <image src="/image/square.png" class="icon" mode="widthFix"></image>
+      <view class="infotext">
+        <view class="infotitle">{{ngo_name}}</view>
+        <view class="manytag">
+          <view class="tags">{{tag3}}</view>
+          <view class="tags">{{tag4}}</view>
+        </view>
+        <view class="infocontent">{{position}}...等{{number_position}}个Project</view>
+      </view>
+    </view>
+  </view>
+  <view class="row">
+    <view class="info">
+      <image src="/image/square.png" class="icon" mode="widthFix"></image>
+      <view class="infotext">
+        <view class="infotitle">{{ngo_name}}</view>
+        <view class="manytag">
+          <view class="tags">{{tag3}}</view>
+          <view class="tags">{{tag4}}</view>
+        </view>
+        <view class="infocontent">{{position}}...等{{number_position}}个Project</view>
+      </view>
+    </view>
+    <view class="info">
+      <image src="/image/square.png" class="icon" mode="widthFix"></image>
+      <view class="infotext">
+        <view class="infotitle">{{ngo_name}}</view>
+        <view class="manytag">
+          <view class="tags">{{tag3}}</view>
+          <view class="tags">{{tag4}}</view>
+        </view>
+        <view class="infocontent">{{position}}...等{{number_position}}个Project</view>
+      </view>
+    </view>
+  </view>
+  <view class="row">
+    <view class="info">
+      <image src="/image/square.png" class="icon" mode="widthFix"></image>
+      <view class="infotext">
+        <view class="infotitle">{{ngo_name}}</view>
+        <view class="manytag">
+          <view class="tags">{{tag3}}</view>
+          <view class="tags">{{tag4}}</view>
+        </view>
+        <view class="infocontent">{{position}}...等{{number_position}}个Project</view>
+      </view>
+    </view>
+    <view class="info">
+      <image src="/image/square.png" class="icon" mode="widthFix"></image>
+      <view class="infotext">
+        <view class="infotitle">{{ngo_name}}</view>
+        <view class="manytag">
+          <view class="tags">{{tag3}}</view>
+          <view class="tags">{{tag4}}</view>
+        </view>
+        <view class="infocontent">{{position}}...等{{number_position}}个Project</view>
+      </view>
+    </view>
+  </view>
+</view>
