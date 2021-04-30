@@ -8,7 +8,7 @@ Page({
       success (res) {
         const tempFilePaths = res.tempFilePaths
         wx.uploadFile({
-          url: 'https://lc-ndckoyrx.cn-n1.lcfile.com', 
+          url: 'https://upload.qiniup.com', 
           success (res){
             console.log('success');
             wx.showToast({
