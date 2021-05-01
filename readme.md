@@ -20,10 +20,10 @@ TIPS: \*是必填选项，没有\*的输入输出的值可能为None
 
 ### ***Table Name: Organization***
 
-|name|location|intro|logo|contact_phone|contact_email|contact_name|achievements|website_or_id|goals|photos|
-|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-String|Object<province: String, city: String>|String|File|String|String|String|String|String|String|Array< File >|
-|*组织名称|*所在城市+服务地区|*组织简介|*Logo|*联系电话|*联系邮箱|*联系人姓名|影响力（分点答,列举成就)|官网链接/公众号名称|公益目标/组织愿景|以往活动照片|
+|name|location|intro|logo|contact_phone|contact_email|contact_name|achievements|website_or_id|goals|service_fields|photos|
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+String|Object<province: String, city: String>|String|File|String|String|String|String|String|String|Array< String >| Array< File >|
+|*组织名称|*所在城市+服务地区|*组织简介|*Logo|*联系电话|*联系邮箱|*联系人姓名|影响力（分点答,列举成就)|官网链接/公众号名称|公益目标/组织愿景|服务领域|以往活动照片|
 
 [公益组织首次注册表单](https://jinshuju.net/f/FmZVco)
 
