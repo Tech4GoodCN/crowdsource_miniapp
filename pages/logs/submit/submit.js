@@ -1,4 +1,5 @@
 // pages/logs/submit/submit.js
+// 缺少openid
 const AV = require('../../../libs/leancloud-adapters-weapp.js');
 
 Page({

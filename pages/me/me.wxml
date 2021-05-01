@@ -1,0 +1,33 @@
+
+<view class="flex padding align-center">
+  <image src="/image/square.png" class="avatar"></image>
+  <block wx:if="{{log==true}}">
+    <view class="username">Eric.W</view>
+  </block>
+  <block wx:if="{{log==false}}">
+    <view class="username">登陆/注册</view>
+  </block>
+</view>
+
+<view class="container">
+<view class="resume flex" bindtap="resume_cannot">
+  <image src="/image/shangchuan.png" class="img"></image>
+  <view class="wx">上传简历</view>
+  <image src="/image/NavigatorRight.png" class="NavigatorRight"></image>
+</view>
+
+<view class="resume2 flex" bindtap="myCollection">
+  <image src="/image/starselected.png" class="img"></image>
+  <view class="wx">我的收藏</view>
+  <image src="/image/NavigatorRight.png" class="NavigatorRight"></image>
+</view>
+
+<block wx:if="{{log==true}}">
+<view class="logout logout_text">退出登录</view>
+</block>
+</view>
+
+<image src="/image/xinxi.png" class="xinxi"></image>
+<image src="/image/about.png" class="xinxi2"></image>
+<view class="yijian">意见反馈</view>
+<view class="guanyu">关于我们</view>

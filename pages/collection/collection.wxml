@@ -1,0 +1,49 @@
+<scroll-view scroll-x class="bg-white nav text-center mgntop">
+  <view class="cu-item {{0==TabCur?'navi1':''}}" bindtap="tabSelect" data-id="0">
+    <text class="{{0==TabCur?'text1':'text2'}}">宣传</text>
+  </view>
+  <view class="cu-item {{1==TabCur?'navi1':''}}" bindtap="tabSelect" data-id="1">
+    <text class="{{1==TabCur?'text1':'text2'}}">教育</text>
+  </view>
+  <view class="cu-item {{2==TabCur?'navi1':'text2'}}" bindtap="tabSelect" data-id="2">
+    <text class="{{2==TabCur?'text1':'text2'}}">技术</text>
+  </view>
+  <view class="cu-item {{3==TabCur?'navi1':'text2'}}" bindtap="tabSelect" data-id="3">
+    <text class="{{3==TabCur?'text1':'text2'}}">调研</text>
+  </view>
+  <view class="cu-item {{4==TabCur?'navi1':'text2'}}" bindtap="tabSelect" data-id="4">
+    <text class="{{4==TabCur?'text1':'text2'}}">设计</text>
+  </view>
+</scroll-view>
+
+<block wx:if="{{TabCur==0}}">
+  <view class="container">
+    <view class="box" bindtap="detail">
+      <view class="title">{{demand_title}}</view>
+      <view class="manytag">
+        <view class="tag1">{{tag1}}</view>
+        <view class="tag2">{{tag2}}</view>
+      </view>
+      <view class="flex solid-bottom align-center">
+        <image src="{{imgurl}}" class="avatar" mode="widthFix"></image>
+        <text class="name">{{ngo_name}}</text>
+        <text class="location">{{location}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="container">
+    <view class="box">
+      <view class="title">{{demand_title}}</view>
+      <view class="manytag">
+        <view class="tag1">{{tag1}}</view>
+        <view class="tag2">{{tag2}}</view>
+      </view>
+      <view class="flex solid-bottom align-center">
+        <image src="{{imgurl}}" class="avatar" mode="widthFix"></image>
+        <text class="name">{{ngo_name}}</text>
+        <text class="location">{{location}}</text>
+      </view>
+    </view>
+  </view>
+</block>

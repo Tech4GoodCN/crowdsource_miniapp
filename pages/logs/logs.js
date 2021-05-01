@@ -1,3 +1,4 @@
+const AV = require('../../libs/leancloud-adapters-weapp.js');
 
 Page({
   data: {
@@ -29,6 +30,12 @@ Page({
       this.setData({
         isActive : ! this.data.isActive
       })
+      // 需要openid
+      const Todo = AV.Object.extend('Todo');
+      const todo = new Todo();
+      todo.set('project', 'project name');
+      todo.set('user', openid);
+      todo.save();
     //}
   },
 
