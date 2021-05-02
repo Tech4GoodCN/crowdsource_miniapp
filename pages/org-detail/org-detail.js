@@ -1,24 +1,28 @@
 const app = getApp()
+const AV = require('../../libs/av-core-min.js');
+const util = require('../../utils/util.js');
 Page({
   data: {
     isActive: true,
     TabCur: 0,
     sub: true,
-    demand_title: '生命生命画像馆生名周边产品设计',
-    location: '上海/线下',
-    time: '3月16日-3月20日 每天4小时',
-    tag1: '教育升级',
-    tag2: '文化保育',
-    ngo_name: '益科技',
-    tag3: '环境保护',
-    tag4: '性别平等',
-    imgurl: '/image/diary.png',
-    orgIntro:
-      '益科技是一个神秘组织益科技是一个神秘组织益科技是一个神秘组织益科技是一个神秘组织益科技是一个神秘组织益科技是一个神秘组织益科技是一个神秘组织益科技是一个神秘组织益科技是一个神秘组织益科技是一个神秘组织益科技是一个神秘组织益科技是一个神秘组织益科技是一个神秘组织益科技是一个神秘组织益科技是一个神秘组织益科技是一个神秘组织益科技是一个神秘组织益科技是一个神秘组织益科技是一个神秘组织益科技是一个神秘组织益科技是一个神秘组织益科技是一个神秘组织益科技是一个神秘组织益科技是一个神秘组织益科技是一个神秘组织益科技是一个神秘组织益科技是一个神秘组织益科技是一个神秘组织益科技是一个神秘组织益科技是一个神秘组织益科技是一个神秘组织益科技是一个神秘组织',
-    orgPhoto: '',
-    orgWeb: 'www.tech4good.com',
-    orgInf:
-      '益科技贼啦牛逼！益科技贼啦牛逼！益科技贼啦牛逼！益科技贼啦牛逼！益科技贼啦牛逼！益科技贼啦牛逼！益科技贼啦牛逼！益科技贼啦牛逼！益科技贼啦牛逼！益科技贼啦牛逼！益科技贼啦牛逼！益科技贼啦牛逼！益科技贼啦牛逼！益科技贼啦牛逼！益科技贼啦牛逼！益科技贼啦牛逼！益科技贼啦牛逼！益科技贼啦牛逼！益科技贼啦牛逼！益科技贼啦牛逼！益科技贼啦牛逼！',
+    org_objId:'',
+    organization:{}
+  },
+  onLoad:function(options) {
+    console.log(options)
+    this.setData({
+      org_objId: JSON.parse(options.org_objId)
+    })
+    this.getOrganizations()
+  },
+  getOrganizations() {
+    const query = new AV.Query('Organization');
+    query.get(this.data.org_objId).then((organization) => {
+      this.setData({
+        organization:organization.toJSON()
+      })
+    });
   },
   tabSelect(e) {
     this.setData({

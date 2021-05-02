@@ -32,17 +32,24 @@
   line-height: 20px;
 }
 
-.infocontent {
+.infocontent{
   font-family: PingFang SC;
   font-style: normal;
   font-weight: 300;
   font-size: 11px;
-  line-height: 15px;
   color: #000000;
   margin-left: 45rpx;
   margin-top: 20rpx;
   margin-right: 45rpx;
-}
+  }
+  .organization-intro{
+    text-overflow:ellipsis;
+    display: -webkit-box;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
 
 .tags {
   width: 50px;
@@ -60,6 +67,23 @@
   padding-top: 7rpx;
 }
 
+.grid-item-container {
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.grid-item-child {
+  display:flex;
+  display: -webkit-flex;
+  justify-content:center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  float: left;
+  width: 50%;
+}
 .row {
   display: flex;
   flex-direction: row;

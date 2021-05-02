@@ -1,52 +1,18 @@
 page {
   background-color: rgb(255, 255, 255);
 }
-
+.wrap{
+  margin-left: 60rpx;
+  margin-right:60rpx;
+  display: flex;
+  flex-direction: column;
+  overflow-wrap: break-word;
+}
 .container {
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-}
-
-.title {
-  position: absolute;
-  width: 277px;
-  height: 28px;
-  left: 20px;
-  top: 13px;
-  font-family: PingFang SC;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 28px;
-  /* identical to box height */
-  color: #000000;
-}
-
-.subtitle {
-  position: absolute;
-  width: 263px;
-  height: 20px;
-  left: 20px;
-  top: 58px;
-  font-family: PingFang SC;
-  font-style: normal;
-  font-weight: 300;
-  font-size: 12px;
-  line-height: 20px;
-  /* identical to box height */
-  color: #000000;
-}
-
-.tagtext {
-  font-family: PingFang SC;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 11px;
-  line-height: 15px;
-  display: flex;
-  color: #000000;
 }
 
 .info {
@@ -99,41 +65,10 @@ page {
   margin-right: 45rpx;
 }
 
-.star {
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  right: 50rpx;
-  top: 30rpx;
-}
 
-.startext {
-  position: absolute;
-  right: 50rpx;
-  top: 40px;
-  font-family: Arima Madurai;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 9px;
-  line-height: 15px;
-  color: #979797;
-}
-
-.startextselected {
-  position: absolute;
-  right: 57rpx;
-  top: 40px;
-  font-family: Arima Madurai;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 9px;
-  line-height: 15px;
-  color: #979797;
-}
 
 .title2 {
   margin-top: 50rpx;
-  margin-left: 50rpx;
   font-family: PingFang SC;
   font-style: normal;
   font-weight: 500;
@@ -146,42 +81,12 @@ page {
 
 .content2 {
   margin-top: 30rpx;
-  margin-left: 60rpx;
-  margin-right: 60rpx;
   font-family: PingFang SC;
   font-style: normal;
   font-weight: normal;
   font-size: 13px;
   line-height: 150%;
-  letter-spacing: 0.01em;
   color: #4f4f4f;
-}
-
-.content3 {
-  margin-top: 30rpx;
-  margin-left: 60rpx;
-  margin-right: 60rpx;
-  margin-bottom: 150rpx;
-  font-family: PingFang SC;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 150%;
-  letter-spacing: 0.01em;
-  color: #4f4f4f;
-}
-
-.title3 {
-  margin-top: 50rpx;
-  margin-left: 50rpx;
-  font-family: PingFang SC;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 15px;
-  line-height: 21px;
-  display: flex;
-  align-items: center;
-  color: #333333;
 }
 
 .submit {
@@ -224,9 +129,6 @@ page {
   color: #ea6a6a;
 }
 
-.orgPhoto {
-  margin-left: 20px;
-}
 
 .box {
   position: relative;
@@ -383,32 +285,22 @@ page {
   padding-top: 7rpx;
 }
 
-.tagbottom {
-  display: flex;
-  flex-direction: row;
-}
-
-.avatar {
-  width: 60rpx;
-  height: 60rpx;
-  border-radius: 50%;
-  margin: 25rpx;
-  margin-top: 30rpx;
-}
-
-.name {
+.infocontent{
   font-family: PingFang SC;
   font-style: normal;
   font-weight: 300;
-  font-size: 13px;
-  line-height: 20px;
+  font-size: 11px;
   color: #000000;
-}
+  margin-left: 45rpx;
+  margin-top: 20rpx;
+  margin-right: 45rpx;
+  }
+  .organization-intro{
+    text-overflow:ellipsis;
+    display: -webkit-box;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
 
-.location {
-  position: relative;
-  left: 320rpx;
-  color: #b2b2b2;
-  font-size: 12px;
-  line-height: 17px;
-}

@@ -16,12 +16,13 @@ App({
     onShow(){
         const AV = require('./libs/av-core-min.js');
         const adapters = require('./libs/leancloud-adapters-weapp.js');
+    
         AV.setAdapters(adapters);
         AV.init({
-            appId: '{{leancloudId}}',
-            appKey: '{{leancloudKey}}',
-            serverURLs: '{{leancloudURL}}',
-        })
+          appId: 'NdCkOyRxT5xXE7VA9GLyAXCf-gzGzoHsz',
+          appKey: 'n55hgBBMiWT1iSSPcqiSAOOQ',
+          serverURLs: "https://ndckoyrx.lc-cn-n1-shared.com",
+        });
     },
     globalData: {
         userInfo: null,
@@ -30,13 +31,3 @@ App({
         leancloudURL: 'https://ndckoyrx.lc-cn-n1-shared.com'
     }
 })
-
-// const AV = require('./libs/av-core-min.js');
-// const adapters = require('./libs/leancloud-adapters-weapp.js');
-
-// AV.setAdapters(adapters);
-// AV.init({
-//     appId: '{{appid}}',
-//     appKey: '{{appkey}}',
-//     serverURLs: "https://ndckoyrx.lc-cn-n1-shared.com",
-// });

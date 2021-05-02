@@ -1,80 +1,10 @@
 {
-<<<<<<< HEAD
-	"description": "项目配置文件",
-	"packOptions": {
-		"ignore": []
-	},
-	"setting": {
-		"bundle": false,
-		"userConfirmedBundleSwitch": false,
-		"urlCheck": true,
-		"scopeDataCheck": false,
-		"coverView": true,
-		"es6": true,
-		"postcss": true,
-		"compileHotReLoad": false,
-		"preloadBackgroundData": false,
-		"minified": true,
-		"autoAudits": false,
-		"newFeature": false,
-		"uglifyFileName": false,
-		"uploadWithSourceMap": true,
-		"useIsolateContext": true,
-		"nodeModules": false,
-		"enhance": false,
-		"useCompilerModule": true,
-		"userConfirmedUseCompilerModuleSwitch": false,
-		"useMultiFrameRuntime": true,
-		"useApiHook": true,
-		"useApiHostProcess": false,
-		"showShadowRootInWxmlPanel": true,
-		"packNpmManually": false,
-		"enableEngineNative": false,
-		"packNpmRelationList": [],
-		"minifyWXSS": true
-	},
-	"compileType": "miniprogram",
-	"libVersion": "2.16.1",
-	"appid": "wxa863cbd603c9d5fe",
-	"projectname": "%E4%BC%97%E5%8C%85%E5%B9%B3%E5%8F%B0",
-	"debugOptions": {
-		"hidedInDevtools": []
-	},
-	"scripts": {},
-	"staticServerOptions": {
-		"baseURL": "",
-		"servePath": ""
-	},
-	"isGameTourist": false,
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"condition": {
-		"search": {
-			"list": []
-		},
-		"conversation": {
-			"list": []
-		},
-		"game": {
-			"list": []
-		},
-		"plugin": {
-			"list": []
-		},
-		"gamePlugin": {
-			"list": []
-		},
-		"miniprogram": {
-			"list": []
-		}
-	}
-=======
   "description": "项目配置文件",
   "packOptions": {
     "ignore": []
   },
   "setting": {
-    "urlCheck": true,
+    "urlCheck": false,
     "es6": true,
     "enhance": false,
     "postcss": true,
@@ -111,7 +41,7 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.16.1",
-  "appid": "wx2a03457ed4d88677",
+  "appid": "wx4a2c2abd955d4de1",
   "projectname": "%E4%BC%97%E5%8C%85%E5%B9%B3%E5%8F%B0",
   "debugOptions": {
     "hidedInDevtools": []
@@ -142,5 +72,4 @@
       "list": []
     }
   }
->>>>>>> 2ce2e3114122ab947a16d680155a8048b81e18ec
 }

@@ -1,12 +1,15 @@
 <view class="info">
-  <image src="/image/square.png" class="icon" mode="widthFix"></image>
+  <image src="{{organization.logo.url}}" class="icon" mode="widthFix"></image>
   <view class="infotext">
-    <view class="infotitle">{{ngo_name}}</view>
+    <view class="infotitle">{{organization.name}}</view>
     <view class="manytag">
-      <view class="tags">{{tag3}}</view>
-      <view class="tags">{{tag4}}</view>
+      <block wx:for="{{organization.service_fields}}" wx:key="this">
+        <view class="tags">{{item}}</view>
+      </block>
     </view>
-    <view class="infocontent">{{position}}...等{{number_position}}个Project</view>
+    <view class="infocontent">
+      <text class="organization-intro">{{organization.achievements}}</text>
+    </view>
   </view>
 </view>
 <scroll-view scroll-x class="bg-white nav text-center mgntop">
@@ -17,15 +20,21 @@
     <text class="{{1==TabCur?'text1':'text2'}}">热招需求</text>
   </view>
 </scroll-view>
+
 <block wx:if="{{TabCur==0}}">
-  <view class="title2">组织介绍</view>
-  <view class="content2">{{orgIntro}}</view>
-  <view class="title3">组织相册</view>
-  <image src="/image/Hackathon_Poster.jpeg" class="orgPhoto"></image>
-  <view class="title3">组织官网</view>
-  <view class="content2">{{orgWeb}}</view>
-  <view class="title3">影响力</view>
-  <view class="content2">{{orgInf}}</view>
+  <view class="wrap">
+    <view class="title2">组织介绍</view>
+    <text class="content2">{{organization.intro}}</text>
+    <view class="title2">组织相册</view>
+    <block wx:for="{{organization.photos}}" wx:key="this">
+      <image src="{{item}}" mode="aspectFit" class="orgPhoto"></image>
+    </block>
+    <view class="title2">组织官网</view>
+    <text class="content2">{{organization.website_or_id}}</text>
+    <view class="title2">影响力</view>
+    <text class="content2">{{organization.achievements}}</text>
+    <view style="height:150rpx;width:100%;"></view>
+</view>
   <view class="container">
     <button class="{{sub?'submit':'submitted'}}" bindtap="submit">{{sub?'投递简历':'已投递'}}</button>
   </view>
