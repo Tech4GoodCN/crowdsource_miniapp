@@ -23,9 +23,10 @@ Page({
   // if saved
   saved: function () {
     const currentUser = AV.User.current();
-    const query = new AV.Query('User');
-    query.get(currentUser).then((favs) => this.setData({
-      requirementList: favs.map(getDataForRender)
+    const query = new AV.Query('_User');
+    query.equalTo('objectId', currentUser.objectId);
+    query.find().then((user) => this.setData({
+      requirementList: user.favorites.map(getDataForRender)
     }))
     .catch(console.error)
     wx.hideLoading()

@@ -4,6 +4,10 @@ const AV = require('../../../libs/av-core-min.js');
 
 Page({
   uploadCV: function () {
+    const pages = getCurrentPages();
+    const prevPage = pages[pages.length - 2];  //上一个页面
+    const req_objId = prevPage.req_objId;
+
     wx.chooseMessageFile({
       type : 'file',
       success (res) {
@@ -19,12 +23,11 @@ Page({
                 uri: tempFilePaths[0],
               },
             })
-
+            
             submission.set('submitter', currentUser);
-            // 需要requirement对象
-            // submission.set('requirment', req_id);
-            submission.add('resume', avFile);
-            // User.add('submissions', req_id);
+            const requirement = AV.Object.createWithoutData('Requirement', req_objId);
+            submission.set('requirement', requirement);
+            submission.set('resume', avFile);
 
             submission.save().then(function() {
               // 成功保存之后，执行其他逻辑.
