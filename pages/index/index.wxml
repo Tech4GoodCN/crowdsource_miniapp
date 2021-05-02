@@ -1,3 +1,4 @@
+<!-- Top Tab Bar -->
 <scroll-view scroll-x class="bg-white nav text-center mgntop">
   <view class="cu-item {{0==TabCur?'navi1':''}}" bindtap="tabSelect" data-id="0">
     <text class="{{0==TabCur?'text1':'text2'}}">宣传</text>
@@ -15,35 +16,29 @@
     <text class="{{4==TabCur?'text1':'text2'}}">设计</text>
   </view>
 </scroll-view>
+<!-- Top Tab Bar -->
 
-<block wx:if="{{TabCur==0}}">
+<!-- Tab 0 Page -->
+<block wx:for="{{requirementList}}" wx:key="this">
   <view class="container">
-    <view class="box" bindtap="detail">
-      <view class="title">{{demand_title}}</view>
+    <view class="box" bindtap="showDetailPage" data-req_objId="{{item.objectId}}">
+      <view class="title">{{item.project_name.name}}</view>
       <view class="manytag">
-        <view class="tag1">{{tag1}}</view>
-        <view class="tag2">{{tag2}}</view>
+        <block wx:for="{{item.project_fields}}" wx:key="this">
+          <view class="tag1">{{item}}</view>
+        </block>
       </view>
-      <view class="flex solid-bottom align-center">
+      <view class="bottom">
         <image src="{{imgurl}}" class="avatar" mode="widthFix"></image>
-        <text class="name">{{ngo_name}}</text>
-        <text class="location">{{location}}</text>
-      </view>
-    </view>
-  </view>
-
-  <view class="container">
-    <view class="box">
-      <view class="title">{{demand_title}}</view>
-      <view class="manytag">
-        <view class="tag1">{{tag1}}</view>
-        <view class="tag2">{{tag2}}</view>
-      </view>
-      <view class="flex solid-bottom align-center">
-        <image src="{{imgurl}}" class="avatar" mode="widthFix"></image>
-        <text class="name">{{ngo_name}}</text>
-        <text class="location">{{location}}</text>
+        <text class="name">{{item.organization_name}}</text>
+        <view class="location">
+          <text>{{item.location.city}}/</text>
+          <text hidden="{{!item.work_method.online}}">线上</text>
+          <text hidden="{{!item.work_method.offline}}">线下</text>
+          <text hidden="{{!item.work_method.both}}">线上+线下</text>
+        </view>
       </view>
     </view>
   </view>
 </block>
+<!-- Tab 0 Page -->

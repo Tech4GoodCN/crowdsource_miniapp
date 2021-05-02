@@ -1,6 +1,6 @@
 // pages/logs/submit/submit.js
-// 缺少openid
-const AV = require('../../../libs/leancloud-adapters-weapp.js');
+// const AV = require('../../../libs/leancloud-adapters-weapp.js');
+const AV = require('../../../libs/av-core-min.js');
 
 Page({
   uploadCV: function () {
@@ -11,27 +11,33 @@ Page({
         wx.uploadFile({
           url: 'https://upload.qiniup.com', 
           success (res){
-            console.log('success');
-            wx.showToast({
-              title: '上传成功！',
-              icon: 'success',
-              duration: 2000
-            })
-            
-            new AV.File('resume.pdf', {                       
+            const currentUser = AV.User.current();
+            const Submission = AV.Object.extend('Submission');
+            const submission = new Submission();
+            const avFile = new AV.File('resume.pdf', {                       
               blob: {
                 uri: tempFilePaths[0],
               },
-            }).save().then(
-              file => console.log(file.url())
-            ).catch(console.error);
+            })
 
-            const Todo = AV.Object.extend('Todo');
-            const todo = new Todo();
-            todo.set('project', 'project name');
-            todo.set('user', openid);
-            todo.add('attachments', file);
-            todo.save();
+            submission.set('submitter', currentUser);
+            // 需要requirement对象
+            // submission.set('requirment', req_id);
+            submission.add('resume', avFile);
+            // User.add('submissions', req_id);
+
+            submission.save().then(function() {
+              // 成功保存之后，执行其他逻辑.
+              console.log('Successfully submitted');
+              wx.showToast({
+                title: '上传成功！',
+                icon: 'success',
+                duration: 2000
+              })
+            }, function(error) {
+              // 异常处理
+              console.error('Failed to create new object, with error message: ' + error.message);
+            });
           }
         })
       }
