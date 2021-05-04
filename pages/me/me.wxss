@@ -88,27 +88,6 @@ page {
   background: #FFFFFF;
 }
 
-.logout{
-position: relative;
-width: 130px;
-height: 42px;
-background: #EA6A6A;
-box-shadow: 0px 4px 14px rgba(189, 187, 187, 0.25);
-border-radius: 5px;
-margin-top: 100rpx;
-}
-
-.logout_text{
-font-family: PingFang SC;
-font-style: normal;
-font-weight: 500;
-font-size: 14px;
-line-height: 20px;
-color: #FFFFFF;
-text-align: center;
-padding:20rpx;
-}
-
 .xinxi{
   width: 120rpx; 
   height: 120rpx; 

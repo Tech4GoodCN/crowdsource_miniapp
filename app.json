@@ -4,6 +4,7 @@
     "pages/logs/logs",
     "pages/logs/submit/submit",
     "pages/me/me",
+    "pages/orgs/orgs",
     "pages/collection/collection"
   ],
 
@@ -21,6 +22,10 @@
         "text": "项目展示"
       },
       {
+        "pagePath": "pages/orgs/orgs",
+        "text": "好组织"
+      },
+      {
         "pagePath":"pages/me/me",
         "iconPath": "",
         "selectedIconPath": "",
@@ -30,7 +35,6 @@
   },
 
   "window":{
-    "navigationStyle": "default",
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Weixin",

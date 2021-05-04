@@ -1,0 +1,20 @@
+<view class="grid-item-container">
+    <block wx:for="{{organizations}}" wx:key="this">
+      <view class="grid-item-child ">
+      <view class="info" bindtap="orgDetail" data-org_objId="{{item.objectId}}">
+        <image src="{{item.logo.url}}" class="icon" mode="widthFix"></image>
+        <view class="infotext">
+          <view class="infotitle">{{item.name}}</view>
+          <view class="manytag">
+            <block wx:for="{{item.service_fields}}" wx:key="this">
+              <view class="tags">{{item}}</view>
+            </block>
+          </view>
+          <view class="infocontent">
+            <text class="organization-intro">{{item.intro}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    </block>
+</view>
