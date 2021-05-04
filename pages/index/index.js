@@ -1,48 +1,50 @@
 // index.js
 // 获取应用实例
 const app = getApp()
-
+const AV = require('../../libs/av-core-min.js');
+const getDataForRender = requirementList => requirementList.toJSON();
 Page({
+  requirementList:[],
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    canIUseGetUserProfile: false,
-    canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName') // 如需尝试获取用户信息可改为false
+    TabCur: 0,
+    req_objId: "loremipsum",
+    demand_title: "VIVA生命画像馆——周边产品设计",
+    tag1:"教育升级",
+    tag2:"文化保育",
+    imgurl:"/image/diary.png",
+    ngo_name:"益科技",
+    location:"上海/线下",
+    requirementList:[],
+    category:['宣传','教育','技术','调研','设计']
   },
   // 事件处理函数
-  bindViewTap() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
   onLoad() {
-    if (wx.getUserProfile) {
-      this.setData({
-        canIUseGetUserProfile: true
-      })
-    }
+    this.getRequirement()
   },
-  getUserProfile(e) {
-    // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
-    wx.getUserProfile({
-      desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-      success: (res) => {
-        console.log(res)
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
+  getRequirement() {
+    wx.showLoading({
+      title: '加载中',
     })
+    const query = new AV.Query('Requirement');
+    query.equalTo('requirement_cat'+'.'+'large',this.data.category[this.data.TabCur])
+    query.find().then(requirementList => this.setData({
+      requirementList: requirementList.map(getDataForRender)
+    }))
+    .catch(console.error)
+    wx.hideLoading()
   },
-  getUserInfo(e) {
-    // 不推荐使用getUserInfo获取用户信息，预计自2021年4月13日起，getUserInfo将不再弹出弹窗，并直接返回匿名的用户个人信息
-    console.log(e)
+  tabSelect(e) {
     this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+      TabCur: e.currentTarget.dataset.id,
+    })
+    this.getRequirement()
+  },
+  showDetailPage: function(e){
+    var req_objId = e.currentTarget.dataset.req_objid; // need to be all lowercase; i.e. can't be dataset.req_objId
+    console.log(req_objId)
+    wx.navigateTo({
+      url: '/pages/logs/logs?req_objId=' + JSON.stringify(req_objId)
+      // url: '/pages/logs/logs?req_objId=' + req_objId
     })
   }
 })
