@@ -1,5 +1,7 @@
 // pages/me/me.js
 const app = getApp()
+const AV = require('../../libs/av-core-min.js');
+
 Page({
   /**
    * 页面的初始数据
@@ -48,7 +50,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    const AV = this.initDB()
     wx.checkSession({
         success() {
             // session_key 未过期，并且在本生命周期一直有效
@@ -99,17 +100,6 @@ Page({
   onShareAppMessage: function () {
   },
 
-  initDB: function(e){
-    const AV = require('../../libs/av-core-min.js');
-    const adapters = require('../../libs/leancloud-adapters-weapp.js');
-    AV.setAdapters(adapters);
-    AV.init({
-        appId: app.globalData.leancloudId,
-        appKey: app.globalData.leancloudKey,
-        serverURLs: app.globalData.leancloudURL,
-    })
-    return AV
-  },
   getUserProfile: function (e) {
     // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认
     // 开发者妥善保管用户快速填写的头像昵称，避免重复弹窗

@@ -134,8 +134,8 @@ color: #000000;
   }
 
   .icon{
-  width: 200rpx; 
-  height: 200rpx; 
+  width: 1600rpx; 
+  height: 1600rpx; 
   border-radius: 50%;
   position: relative;
   align-self: center;

@@ -91,7 +91,11 @@ Page({
     // if (condition) {
     //   如果没登陆，弹出登陆框
     // } else {
+      if (AV.user.current == null) {
+
+      }
       const currentUser = AV.User.current();
+      print("curr user is " + AV.user.current());
       const query = new AV.Query('_User');
       this.setData({
         isActive : !this.data.isActive
