@@ -1,12 +1,4 @@
 # 众包平台开发项目 (Match Station)
-<!-- ## 简介
-
-## 已实现功能
-
-## 未上线功能
-
-- 每周投递打包发送
-- 自动终止投递deadline -->
 
 ## 数据库使用
 
@@ -46,7 +38,7 @@ String|Object<province: String, city: String>|String|File|String|String|String|S
 
 [公益组织需求表单](https://jinshuju.net/f/osnDG7)
 
-### ***Table Name: Submissions***
+### ***Table Name: Submission***
 
 |submitter|requirement|status|resume|
 |:-:|:-:|:-:|:-:|

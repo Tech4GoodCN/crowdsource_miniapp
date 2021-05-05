@@ -1,27 +1,27 @@
 <view class="flex padding align-center">
-  <block wx:if="{{!hasUserInfo}}">
-    <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 点击登录 </button>
-    <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-  </block>
-  <block wx:else>
-    <image src="{{userInfo.avatarUrl}}" class="avatar"></image>
-    <text class="username">{{userInfo.nickName}}</text>
-  </block>
+    <block wx:if="{{!hasUserInfo}}">
+        <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 点击登录 </button>
+        <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    </block>
+    <block wx:else>
+        <image src="{{userInfo.avatarUrl}}" class="avatar"></image>
+        <text class="username">{{userInfo.nickName}}</text>
+    </block>
 </view>
 
 <view class="container">
 
-  <view class="resume flex" bindtap="resume_cannot">
-    <image src="/image/shangchuan.png" class="img"></image>
-    <view class="wx">上传简历</view>
-    <image src="/image/NavigatorRight.png" class="NavigatorRight"></image>
-  </view>
+    <view class="resume flex" bindtap="resume_cannot">
+        <image src="/image/shangchuan.png" class="img"></image>
+        <view class="wx">上传简历</view>
+        <image src="/image/NavigatorRight.png" class="NavigatorRight"></image>
+    </view>
 
-  <view class="resume2 flex" bindtap="myCollection">
-    <image src="/image/starselected.png" class="img"></image>
-    <view class="wx">我的收藏</view>
-    <image src="/image/NavigatorRight.png" class="NavigatorRight"></image>
-  </view>
+    <view class="resume2 flex" bindtap="myCollection">
+        <image src="/image/starselected.png" class="img"></image>
+        <view class="wx">我的收藏</view>
+        <image src="/image/NavigatorRight.png" class="NavigatorRight"></image>
+    </view>
 </view>
 
 <image src="/image/xinxi.png" class="xinxi"></image>
