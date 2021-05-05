@@ -9,7 +9,6 @@ Page({
     TabCur: 0,
     org_objId:'',
     organization:{},
-    req_objId: "loremipsum",
     demand_title: "VIVA生命画像馆——周边产品设计",
     tag1:"教育升级",
     tag2:"文化保育",
@@ -17,8 +16,6 @@ Page({
     ngo_name:"益科技",
     location:"上海/线下",
     requirementList:[],
-    //改！
-    category:['宣传','教育','技术','调研','设计']
   },
   onLoad:function(options) {
     console.log(options)
@@ -26,7 +23,6 @@ Page({
       org_objId: JSON.parse(options.org_objId)
     })
     this.getOrganizations()
-    this.getRequirement()
   },
   getOrganizations() {
     const query = new AV.Query('Organization');
@@ -41,12 +37,12 @@ Page({
       title: '加载中',
     })
     const query = new AV.Query('Requirement');
-    query.equalTo('requirement_cat'+'.'+'large',this.data.category[this.data.TabCur])
+    query.equalTo('organization_name', this.data.organization.name);
     query.find().then(requirementList => this.setData({
       requirementList: requirementList.map(getDataForRender)
     }))
-    .catch(console.error)
-    wx.hideLoading()
+    .catch(console.error);
+    wx.hideLoading();
   },
   tabSelect(e) {
     this.setData({

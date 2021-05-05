@@ -131,13 +131,14 @@ page {
 
 
 .box {
-  position: relative;
+  position: absolute;
   width: 340px;
   height: 130px;
   margin-top: 30rpx;
   background: #ffffff;
   box-shadow: 0px 4px 14px rgba(189, 187, 187, 0.25);
   border-radius: 8px;
+  align-self: center;
 }
 
 .title {
