@@ -35,7 +35,4 @@
     <text class="content2">{{organization.achievements}}</text>
     <view style="height:150rpx;width:100%;"></view>
 </view>
-  <view class="container">
-    <button class="{{sub?'submit':'submitted'}}" bindtap="submit">{{sub?'投递简历':'已投递'}}</button>
-  </view>
 </block>

@@ -1,12 +1,6 @@
 <view class="flex padding align-center">
-  <block wx:if="{{!hasUserInfo}}">
-    <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 点击登录 </button>
-    <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-  </block>
-  <block wx:else>
-    <image src="{{userInfo.avatarUrl}}" class="avatar"></image>
-    <text class="username">{{userInfo.nickName}}</text>
-  </block>
+  <open-data type="userAvatarUrl" class="avatar"></open-data>
+  <open-data type="userNickName" class="username"></open-data>
 </view>
 
 <view class="container">
