@@ -2,8 +2,7 @@
 // 获取应用实例
 const app = getApp();
 const AV = require('../../libs/av-core-min.js');
-const getDataForRender = requirementList => requirementList.toJSON();
-
+const getDataForRender = fetchedObjects => fetchedObjects.toJSON();
 Page({
     data: {
         demand_title: "",
@@ -18,15 +17,12 @@ Page({
     onLoad() {
         this.saved()
     },
-
     // if saved
     saved: function() {
         const currentUser = AV.User.current();
-
         wx.showLoading({
             title: '加载中',
         })
-
         const favs = currentUser.get('favorites');
         // console.log("favs is: " + favs);
 
@@ -37,27 +33,15 @@ Page({
                 var favId = favs[i];
                 favObjs.push(AV.Object.createWithoutData('Requirement', favId));
             }
-
-            AV.Object.fetchAll(favObjs).then(
-                function(fetchedObjects) {
-                    this.setData({
-                        requirementList: fetchedObjects.map(getDataForRender)
-                    })
-                    console.log("reqlist inside is: ");
-                    console.log(this.data.requirementList);
-                },
-                function(error) {
-                    console.log("favs error is :" + error);
-                }
-            )
+            AV.Object.fetchAll(favObjs).then((fetchedObjects) => {
+                console.log(fetchedObjects.map(getDataForRender))
+                this.setData({
+                    requirementList: fetchedObjects.map(getDataForRender)
+                })
+            })
+            wx.hideLoading();
         }
-
-        console.log("reqlist outside is: ");
-        console.log(this.data.requirementList);
-
-        wx.hideLoading();
     },
-
     showDetailPage: function(e) {
         var req_objId = e.currentTarget.dataset.req_objid; // need to be all lowercase; i.e. can't be dataset.req_objId
         console.log(req_objId)
@@ -65,5 +49,4 @@ Page({
             url: '/pages/logs/logs?req_objId=' + JSON.stringify(req_objId)
         })
     }
-
 })
