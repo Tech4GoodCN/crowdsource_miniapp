@@ -3,7 +3,6 @@ const AV = require('../../libs/av-core-min.js');
 const util = require('../../utils/util.js');
 Page({
   data: {
-    isActive: true,
     TabCur: 0,
     sub: true,
     org_objId:'',

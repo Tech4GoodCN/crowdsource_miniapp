@@ -52,15 +52,11 @@ Page({
         wx.checkSession({
             success() {
                 // session_key 未过期，并且在本生命周期一直有效
-                AV.User.loginWithMiniApp().then(user => {
-                    app.globalData.user = user;
-                }).catch(console.error);
+                AV.User.loginWithMiniApp().catch(console.error);
             },
             fail() {
                 wx.login() //重新登录
-                AV.User.loginWithMiniApp().then(user => {
-                    app.globalData.user = user;
-                }).catch(console.error);
+                AV.User.loginWithMiniApp().catch(console.error);
             }
         })
     },
@@ -113,6 +109,7 @@ Page({
             }
         })
     },
+
     bindGetUserInfo: function(e) {
         wx.getSetting({
             success(res) {

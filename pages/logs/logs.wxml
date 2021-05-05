@@ -1,6 +1,6 @@
 <view class="title">{{requirement.project_name.name}}</view>
-<image src="{{isActive?'/image/star.png':'/image/starselected.png'}}" class="star" bindtap="star"></image>
-<view class="{{isActive?'startext':'startextselected'}}">{{isActive?'未收藏':'收藏'}}</view>
+<image src="{{!didFavorite?'/image/star.png':'/image/starselected.png'}}" class="star" bindtap="star"></image>
+<view class="{{!didFavorite?'startext':'startextselected'}}">{{!didFavorite? '未收藏':'收藏'}}</view>
 <view class="subtitle">
     <text>{{requirement.location.city}}/</text>
     <text hidden="{{!requirement.work_method.online}}">线上 | </text>
@@ -44,5 +44,5 @@
 <view class="content2">{{requirement.signup_reqs}}</view>
 <view style="height:130rpx;width:100%;"></view>
 <view class="container">
-    <button class="{{sub?'submit':'submitted'}}" bindtap="submit">{{sub?'投递简历':'已投递'}}</button>
+  <button class="{{!didSubmitForThisReq?'submit':'submitted'}}" bindtap="submit">{{!didSubmitForThisReq?'投递简历':'已投递'}}</button>
 </view>

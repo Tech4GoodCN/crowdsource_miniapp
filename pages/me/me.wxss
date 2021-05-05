@@ -2,21 +2,23 @@ page {
     background-color: rgb(255, 255, 255);
 }
 
-.container {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    /**padding: 200rpx 0;**/
-    box-sizing: border-box;
-}
-
 .avatar {
+    overflow: hidden;
     width: 120rpx;
     height: 120rpx;
     border-radius: 50%;
     margin-top: 50rpx;
+    margin-left: 50rpx;
+}
+
+.username {
+    font-family: PingFang SC;
+    font-style: larger;
+    font-weight: 500;
+    font-size: 20px;
+    align-self: center;
+    line-height: 25px;
+    color: #000000;
     margin-left: 50rpx;
 }
 

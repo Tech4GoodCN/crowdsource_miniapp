@@ -9,21 +9,20 @@ Page({
         imgUrl: '',
         intro: '',
         serviceField: [],
-        isActive: true,
-        sub: true,
+        didFavorite: false,
+        didSubmitForThisReq: false,
         startTime: '',
         endTime: '',
         req_objId: '',
     },
     onLoad: function(options) {
-        
+        console.log(options)
         this.setData({
             req_objId: JSON.parse(options.req_objId)
         })
         this.getRequirement();
-        this.saved();
-        this.applied();
-        console.log(req_objId)
+        this.updateFavoriteStatus();
+        this.updateApplyStatus();
     },
     //获取requirement
     getRequirement() {
@@ -56,90 +55,78 @@ Page({
         });
     },
 
-    // if saved
-    saved: function() {
+    updateFavoriteStatus: function() {
         const currentUser = AV.User.current();
-        const query = new AV.Query('_User');
-        const require = AV.Object.createWithoutData('Requirement', this.data.req_objId);
-        query.equalTo('objectId', currentUser.objectId);
-        query.find().then((user) => {
-            user.containedIn('favorites', require).then(() => {
-                this.setData({
-                    isActive: false
-                })
-            })
-        });
+        const favs = currentUser.get('favorites');
+
+        console.log("curr user favs is: " + favs);
+
+        this.setData({
+            didFavorite: favs != null && favs.includes(this.data.req_objId)
+        })
     },
 
     // if applied
-    applied: function() {
+    updateApplyStatus: function() {
         const currentUser = AV.User.current();
-        const query = new AV.Query('_User');
-        const require = AV.Object.createWithoutData('Requirement', this.data.req_objId);
-        query.equalTo('objectId', currentUser.objectId);
-        query.find().then((user) => {
-            user.containedIn('submissions', require).then(() => {
-                this.setData({
-                    sub: false,
-                })
-                console.log("Already applied");
-            })
-        });
+        const submissions = currentUser.get('submissions');
+
+        console.log("curr user submissions is: " + submissions);
+
+        this.setData({
+            didSubmitForThisReq: submissions != null && submissions.includes(this.data.req_objId)
+        })
     },
 
     // 收藏
     star: function() {
-        // if (condition) {
-        //   如果没登陆，弹出登陆框
-        // } else {
-        if (AV.user.current == null) {
-
+        if (!AV.User.current()) {
+            wx.showToast({
+                title: '请登陆',
+                icon: 'none',
+                duration: 2000 //持续的时间
+            })
+            return;
         }
+
         const currentUser = AV.User.current();
-        print("curr user is " + AV.user.current());
-        const query = new AV.Query('_User');
-        this.setData({
-            isActive: !this.data.isActive
-        });
-        if (this.data.isActive == false) {
-            // 成功保存之后，执行其他逻辑.
-            query.equalTo('objectId', currentUser.objectId);
-            query.find().then((user) => {
-                user.add('favorites', require);
-            }).then(() => {
-                console.log('Successfully saved');
-            }, function(error) {
-                // 异常处理
-                console.error('Failed to create new object, with error message: ' + error.message);
-            })
+
+        // Append/remove req from user's favorites
+        if (this.data.didFavorite == false) {
+            currentUser.add('favorites', this.data.req_objId);
         } else {
-            query.equalTo('objectId', currentUser.objectId);
-            query.find().then((user) => {
-                user.remove('favorites', require);
-            }).then(() => {
-                console.log('Successfully removed');
-            }, function(error) {
-                // 异常处理
-                console.error('Failed to create new object, with error message: ' + error.message);
-            })
+            currentUser.remove('favorites', this.data.req_objId);
         }
 
-        // }
+        // Update star status
+        this.setData({
+            didFavorite: !this.data.didFavorite
+        });
+
+        // Try to save to leancloud.
+        currentUser.save().then((todo) => {
+            console.log("收藏保存成功");
+        }, (error) => {
+            wx.showToast({
+                title: '收藏失败',
+                icon: 'none',
+                duration: 2000 //持续的时间
+            })
+        });
     },
 
     submit: function() {
-        //if (condition) {
-        //如果没登陆，弹出登陆框
-        //} else {
-        //sub的数据后期要改成上传简历后返回的值，这里是为了测试button是否可以成功变灰
-        var sub;
-        this.setData({
-                sub: !this.data.sub
-            }),
-            wx.navigateTo({
-                url: '/pages/logs/submit/submit?objectID='+this.data.req_objId,
+        if (this.data.didSubmitForThisReq) {
+            wx.showToast({
+                title: '请勿重复投递',
+                icon: 'none',
+                duration: 2000 //持续的时间
             })
-            //}
+            return;
+        }
+        wx.navigateTo({
+            url: '/pages/logs/submit/submit?objectID=' + this.data.req_objId,
+        })
     }
 
 })
