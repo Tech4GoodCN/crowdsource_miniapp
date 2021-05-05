@@ -5,17 +5,17 @@
 
 <view class="container">
 
-  <view class="resume flex" bindtap="resume_cannot">
-    <image src="/image/shangchuan.png" class="img"></image>
-    <view class="wx">上传简历</view>
-    <image src="/image/NavigatorRight.png" class="NavigatorRight"></image>
-  </view>
+    <view class="resume flex" bindtap="resume_cannot">
+        <image src="/image/shangchuan.png" class="img"></image>
+        <view class="wx">上传简历</view>
+        <image src="/image/NavigatorRight.png" class="NavigatorRight"></image>
+    </view>
 
-  <view class="resume2 flex" bindtap="myCollection">
-    <image src="/image/starselected.png" class="img"></image>
-    <view class="wx">我的收藏</view>
-    <image src="/image/NavigatorRight.png" class="NavigatorRight"></image>
-  </view>
+    <view class="resume2 flex" bindtap="myCollection">
+        <image src="/image/starselected.png" class="img"></image>
+        <view class="wx">我的收藏</view>
+        <image src="/image/NavigatorRight.png" class="NavigatorRight"></image>
+    </view>
 </view>
 
 <image src="/image/xinxi.png" class="xinxi"></image>

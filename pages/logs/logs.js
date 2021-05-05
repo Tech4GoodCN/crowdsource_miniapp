@@ -4,129 +4,129 @@ const AV = require('../../libs/av-core-min.js');
 const util = require('../../utils/util.js');
 
 Page({
-  data: {
-    requirement:{},
-    imgUrl:'',
-    intro:'',
-    serviceField:[],
-    didFavorite: false,
-    didSubmitForThisReq: false,
-    startTime:'',
-    endTime:'',
-    req_objId:'',
-  },
-  onLoad:function(options) {
-    console.log(options)
-    this.setData({
-      req_objId: JSON.parse(options.req_objId)
-    })
-    this.getRequirement();
-    this.updateFavoriteStatus();
-    this.updateApplyStatus();
-  },
-  //获取requirement
-  getRequirement() {
-    const query = new AV.Query('Requirement');
-    query.get(this.data.req_objId).then((requirement) => {
-      this.setData({
-        requirement:requirement.toJSON()
-      })
-      this.getOrganization();
-      //转换时间
-      const stime=util.formatTime(this.data.requirement.work_length.startTime);
-      const etime=util.formatTime(this.data.requirement.work_length.endTime);
-      this.setData({
-        startTime:stime,
-        endTime:eTime
-      })
-    });
-  
-  },
-  //获取organization
-  getOrganization() {
-    const query = new AV.Query('Organization');
-    query.get(this.data.requirement.organization.objectId).then((organization) => {
-      organization=organization.toJSON()
-      this.setData({
-        imgUrl:organization.logo.url,
-        intro: organization.intro,
-        serviceField: organization.service_fields
-      })
-    });
-  },
-  
-  updateFavoriteStatus: function () {
-    const currentUser = AV.User.current();
-    const favs = currentUser.get('favorites');
+    data: {
+        requirement: {},
+        imgUrl: '',
+        intro: '',
+        serviceField: [],
+        didFavorite: false,
+        didSubmitForThisReq: false,
+        startTime: '',
+        endTime: '',
+        req_objId: '',
+    },
+    onLoad: function(options) {
+        console.log(options)
+        this.setData({
+            req_objId: JSON.parse(options.req_objId)
+        })
+        this.getRequirement();
+        this.updateFavoriteStatus();
+        this.updateApplyStatus();
+    },
+    //获取requirement
+    getRequirement() {
+        const query = new AV.Query('Requirement');
+        query.get(this.data.req_objId).then((requirement) => {
+            this.setData({
+                requirement: requirement.toJSON()
+            })
+            this.getOrganization();
+            //转换时间
+            const stime = util.formatTime(this.data.requirement.work_length.startTime);
+            const etime = util.formatTime(this.data.requirement.work_length.endTime);
+            this.setData({
+                startTime: stime,
+                endTime: eTime
+            })
+        });
 
-    console.log("curr user favs is: " + favs);
+    },
+    //获取organization
+    getOrganization() {
+        const query = new AV.Query('Organization');
+        query.get(this.data.requirement.organization.objectId).then((organization) => {
+            organization = organization.toJSON()
+            this.setData({
+                imgUrl: organization.logo.url,
+                intro: organization.intro,
+                serviceField: organization.service_fields
+            })
+        });
+    },
 
-    this.setData({
-      didFavorite : favs != null && favs.includes(this.data.req_objId)
-    })
-  },
+    updateFavoriteStatus: function() {
+        const currentUser = AV.User.current();
+        const favs = currentUser.get('favorites');
 
-  // if applied
-  updateApplyStatus: function () {
-    const currentUser = AV.User.current();
-    const submissions = currentUser.get('submissions');
+        console.log("curr user favs is: " + favs);
 
-    console.log("curr user submissions is: " + submissions);
+        this.setData({
+            didFavorite: favs != null && favs.includes(this.data.req_objId)
+        })
+    },
 
-    this.setData({
-      didSubmitForThisReq : submissions != null && submissions.includes(this.data.req_objId)
-    })
-  },
+    // if applied
+    updateApplyStatus: function() {
+        const currentUser = AV.User.current();
+        const submissions = currentUser.get('submissions');
 
-  // 收藏
-  star:function(){
-    if (!AV.User.current()) {
-      wx.showToast({
-        title: '请登陆',
-        icon: 'none',
-        duration: 2000//持续的时间
-      })
-      return;
+        console.log("curr user submissions is: " + submissions);
+
+        this.setData({
+            didSubmitForThisReq: submissions != null && submissions.includes(this.data.req_objId)
+        })
+    },
+
+    // 收藏
+    star: function() {
+        if (!AV.User.current()) {
+            wx.showToast({
+                title: '请登陆',
+                icon: 'none',
+                duration: 2000 //持续的时间
+            })
+            return;
+        }
+
+        const currentUser = AV.User.current();
+
+        // Append/remove req from user's favorites
+        if (this.data.didFavorite == false) {
+            currentUser.add('favorites', this.data.req_objId);
+        } else {
+            currentUser.remove('favorites', this.data.req_objId);
+        }
+
+        // Update star status
+        this.setData({
+            didFavorite: !this.data.didFavorite
+        });
+
+        // Try to save to leancloud.
+        currentUser.save().then((todo) => {
+            console.log("收藏保存成功");
+        }, (error) => {
+            wx.showToast({
+                title: '收藏失败',
+                icon: 'none',
+                duration: 2000 //持续的时间
+            })
+        });
+    },
+
+    submit: function() {
+        if (this.data.didSubmitForThisReq) {
+            wx.showToast({
+                title: '请勿重复投递',
+                icon: 'none',
+                duration: 2000 //持续的时间
+            })
+            return;
+        }
+        wx.navigateTo({
+            url: '/pages/logs/submit/submit?objectID=' + this.data.req_objId,
+        })
     }
-
-    const currentUser = AV.User.current();
-
-    // Append/remove req from user's favorites
-    if (this.data.didFavorite == false) {
-      currentUser.add('favorites', this.data.req_objId);
-    } else {
-      currentUser.remove('favorites', this.data.req_objId);
-    }
-
-    // Update star status
-    this.setData({
-      didFavorite : !this.data.didFavorite
-    });
-    
-    // Try to save to leancloud.
-    currentUser.save().then((todo) => {
-      console.log("收藏保存成功");
-    }, (error) => {
-      wx.showToast({
-        title: '收藏失败',
-        icon: 'none',
-        duration: 2000//持续的时间
-      })
-    });
-  },
-
-  submit:function(){
-    if (this.data.didSubmitForThisReq) {
-      wx.showToast({
-        title: '请勿重复投递',
-        icon: 'none',
-        duration: 2000//持续的时间
-      })
-      return;
-    }
-    wx.navigateTo({
-      url: '/pages/logs/submit/submit?objectID='+ JSON.stringify(this.data.req_objId),
-    })
-  }
 
 })

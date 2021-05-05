@@ -2,34 +2,34 @@
 <image src="{{!didFavorite?'/image/star.png':'/image/starselected.png'}}" class="star" bindtap="star"></image>
 <view class="{{!didFavorite?'startext':'startextselected'}}">{{!didFavorite? '未收藏':'收藏'}}</view>
 <view class="subtitle">
-  <text>{{requirement.location.city}}/</text>
-  <text hidden="{{!requirement.work_method.online}}">线上 | </text>
-  <text hidden="{{!requirement.work_method.offline}}">线下 | </text>
-  <text hidden="{{!requirement.work_method.both}}">线上+线下 | </text>
-  <text wx:if="{{startTime}}">{{startTime}}-</text>
-  <text wx:if="{{endTime}}">{{endTime}} </text>
-  <text>{{requirement.work_frequency.daysAWeek}}天/周 </text>
-  <text>{{requirement.work_frequency.hoursADay}}小时/天 </text>
+    <text>{{requirement.location.city}}/</text>
+    <text hidden="{{!requirement.work_method.online}}">线上 | </text>
+    <text hidden="{{!requirement.work_method.offline}}">线下 | </text>
+    <text hidden="{{!requirement.work_method.both}}">线上+线下 | </text>
+    <text wx:if="{{startTime}}">{{startTime}}-</text>
+    <text wx:if="{{endTime}}">{{endTime}} </text>
+    <text>{{requirement.work_frequency.daysAWeek}}天/周 </text>
+    <text>{{requirement.work_frequency.hoursADay}}小时/天 </text>
 </view>
 <view class="manytag">
     <block wx:for="{{requirement.project_fields}}" wx:key="this">
-      <view class="tag1">{{item}}</view>
+        <view class="tag1">{{item}}</view>
     </block>
 </view>
 
 <view class="info">
-  <image src="{{imgUrl}}" class="icon" mode="widthFix"></image>
-  <view class="infotext">
-    <view class="infotitle">{{requirement.organization_name}}</view>
-    <view class="manytag">
-      <block wx:for="{{serviceField}}" wx:key="this">
-        <view class="tag3">{{item}}</view>
-      </block>
+    <image src="{{imgUrl}}" class="icon" mode="widthFix"></image>
+    <view class="infotext">
+        <view class="infotitle">{{requirement.organization_name}}</view>
+        <view class="manytag">
+            <block wx:for="{{serviceField}}" wx:key="this">
+                <view class="tag3">{{item}}</view>
+            </block>
+        </view>
+        <view class="infocontent">
+            <text class="organization-intro">{{intro}}</text>
+        </view>
     </view>
-    <view class="infocontent">
-      <text class="organization-intro">{{intro}}</text>
-    </view>
-  </view>
 </view>
 
 <view class="title2">ObjectId（仅测试用）</view>

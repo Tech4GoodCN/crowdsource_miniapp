@@ -1,49 +1,64 @@
+// const { constants } = require('buffer');
 // pages/logs/submit/submit.js
-// const AV = require('../../../libs/leancloud-adapters-weapp.js');
 const AV = require('../../../libs/av-core-min.js');
 
 Page({
-  uploadCV: function () {
-    const pages = getCurrentPages();
-    const prevPage = pages[pages.length - 2];  //上一个页面
-    const req_objId = prevPage.req_objId;
+    data: {
+        objId: '',
+    },
 
-    wx.chooseMessageFile({
-      type : 'file',
-      success (res) {
-        const tempFilePaths = res.tempFilePaths
-        wx.uploadFile({
-          url: 'https://upload.qiniup.com', 
-          success (res){
-            const currentUser = AV.User.current();
-            const Submission = AV.Object.extend('Submission');
-            const submission = new Submission();
-            const avFile = new AV.File('resume.pdf', {                       
-              blob: {
-                uri: tempFilePaths[0],
-              },
-            })
-            
-            submission.set('submitter', currentUser);
-            const requirement = AV.Object.createWithoutData('Requirement', req_objId);
-            submission.set('requirement', requirement);
-            submission.set('resume', avFile);
-
-            submission.save().then(function() {
-              // 成功保存之后，执行其他逻辑.
-              console.log('Successfully submitted');
-              wx.showToast({
-                title: '上传成功！',
-                icon: 'success',
-                duration: 2000
-              })
-            }, function(error) {
-              // 异常处理
-              console.error('Failed to create new object, with error message: ' + error.message);
-            });
-          }
+    onLoad: function(options) {
+        this.setData({
+            objId: options.objectID
         })
-      }
-    })
-  }
+    },
+
+    uploadCV: function() {
+        const pages = getCurrentPages();
+        const currentPage = pages[pages.length - 1];
+        const objId = currentPage.data.objId;
+
+        wx.chooseMessageFile({
+            type: 'all',
+            count: 1,
+            success(res) {
+                const tempFile = res.tempFiles[0];
+                const currentUser = AV.User.current();
+                const Submission = AV.Object.extend('Submission');
+                const submission = new Submission();
+
+                submission.set('submitter', currentUser);
+                const requirement = AV.Object.createWithoutData('Requirement', objId);
+                submission.set('requirement', requirement);
+                
+                const avFile = new AV.File(tempFile['name'], {
+                        blob: {
+                            uri: tempFile['path'],
+                        },
+                    })
+                submission.set('resume', avFile);
+                submission.set('status', 420)
+                submission.save().then(function() {
+
+                    console.log('Successfully submitted');
+                    wx.showToast({
+                        title: '上传成功！',
+                        icon: 'success',
+                        duration: 2000
+                    })
+                    setTimeout(function() {
+                        wx.navigateBack({
+                            delta: 1,
+                          })
+                    }, 2000);                  
+
+                }, function(error){
+                    console.error('Failed to create new object, with error message: ' + error.message);
+                });
+            },
+            fail() {
+                console.log('choose file error')
+            }
+        })
+    }
 })
