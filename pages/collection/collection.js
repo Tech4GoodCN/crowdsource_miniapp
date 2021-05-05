@@ -2,7 +2,7 @@
 // 获取应用实例
 const app = getApp();
 const AV = require('../../libs/av-core-min.js');
-const getDataForRender = requirementList => requirementList.toJSON();
+const getDataForRender = fetchedObjects => fetchedObjects.toJSON();
 
 Page({
   data: {
@@ -37,7 +37,12 @@ Page({
         var favId = favs[i];
         favObjs.push(AV.Object.createWithoutData('Requirement', favId));
       }
-
+      AV.Object.fetchAll(favObjs).then((fetchedObjects)=>{
+        console.log(fetchedObjects.map(getDataForRender))
+        this.setData({
+          requirementList: fetchedObjects.map(getDataForRender)
+        })
+      })
       AV.Object.fetchAll(favObjs).then(
         function (fetchedObjects) {
           console.log(fetchedObjects.map(getDataForRender));
