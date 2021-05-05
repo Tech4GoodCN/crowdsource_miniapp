@@ -38,19 +38,28 @@ Page({
                     })
                 submission.set('resume', avFile);
                 submission.set('status', 420)
-                submission.save().then(function() {
-
-                    console.log('Successfully submitted');
-                    wx.showToast({
-                        title: '上传成功！',
-                        icon: 'success',
-                        duration: 2000
-                    })
-                    setTimeout(function() {
-                        wx.navigateBack({
-                            delta: 1,
-                          })
-                    }, 2000);                  
+                submission.save().then(function(res) {
+                    const currentUser = AV.User.current();
+                    currentUser.add('submissions', objId);
+                    currentUser.save().then((todo) => {
+                        console.log('Successfully submitted');
+                        wx.showToast({
+                            title: '上传成功！',
+                            icon: 'success',
+                            duration: 2000
+                        })
+                        setTimeout(function() {
+                            wx.navigateBack({
+                                delta: 1,
+                            })
+                        }, 2000); 
+                    }, (error) => {
+                        wx.showToast({
+                            title: '上传失败，请重新上传',
+                            icon: 'none',
+                            duration: 2000 //持续的时间
+                        })
+                    });          
 
                 }, function(error){
                     console.error('Failed to create new object, with error message: ' + error.message);

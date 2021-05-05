@@ -22,6 +22,8 @@ Page({
         })
         this.getRequirement();
         this.updateFavoriteStatus();
+    },
+    onShow: function() {
         this.updateApplyStatus();
     },
     //获取requirement

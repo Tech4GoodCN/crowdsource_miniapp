@@ -28,7 +28,7 @@ Page({
         })
 
         const favs = currentUser.get('favorites');
-        console.log("favs is: " + favs);
+        // console.log("favs is: " + favs);
 
         if (favs != null) {
             var favObjs = []
@@ -40,8 +40,6 @@ Page({
 
             AV.Object.fetchAll(favObjs).then(
                 function(fetchedObjects) {
-                    console.log(fetchedObjects.map(getDataForRender));
-                    console.log("fav obj 1 is :" + fetchedObjects[0].toJSON());
                     this.setData({
                         requirementList: fetchedObjects.map(getDataForRender)
                     })
