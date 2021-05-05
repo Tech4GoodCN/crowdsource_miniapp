@@ -1,5 +1,5 @@
 // const { constants } = require('buffer');
-// pages/logs/submit/submit.js
+// pages/reqsDetails/submit/submit.js
 const AV = require('../../../libs/av-core-min.js');
 
 Page({

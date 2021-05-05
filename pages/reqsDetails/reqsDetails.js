@@ -127,7 +127,7 @@ Page({
             return;
         }
         wx.navigateTo({
-            url: '/pages/logs/submit/submit?objectID=' + this.data.req_objId,
+            url: '/pages/reqsDetails/submit/submit?objectID=' + this.data.req_objId,
         })
     }
 

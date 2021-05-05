@@ -29,7 +29,7 @@
                 </block>
             </view>
             <view class="bottom">
-                <image src="{{imgurl}}" class="avatar" mode="widthFix"></image>
+                <image src="{{item.organization.logo.url}}" class="avatar" mode="widthFix"></image>
                 <text class="name">{{item.organization_name}}</text>
                 <view class="location">
                     <text>{{item.location.city}}/</text>

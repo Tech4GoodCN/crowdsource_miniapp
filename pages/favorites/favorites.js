@@ -5,13 +5,7 @@ const AV = require('../../libs/av-core-min.js');
 const getDataForRender = fetchedObjects => fetchedObjects.toJSON();
 Page({
     data: {
-        demand_title: "",
-        tag1: "",
-        tag2: "",
-        imgurl: "",
-        requirementList: [],
-        ngo_name: "",
-        location: "",
+        requirementList: []
     },
     // 事件处理函数
     onLoad() {
@@ -46,7 +40,7 @@ Page({
         var req_objId = e.currentTarget.dataset.req_objid; // need to be all lowercase; i.e. can't be dataset.req_objId
         console.log(req_objId)
         wx.navigateTo({
-            url: '/pages/logs/logs?req_objId=' + JSON.stringify(req_objId)
+            url: '/pages/reqsDetails/reqsDetails?req_objId=' + JSON.stringify(req_objId)
         })
     }
 })

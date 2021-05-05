@@ -21,7 +21,7 @@ Page({
 
     myCollection: function() {
         wx.navigateTo({
-            url: '../collection/collection',
+            url: '../favorites/favorites',
         })
     },
 
