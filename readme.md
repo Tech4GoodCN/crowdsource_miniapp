@@ -48,9 +48,9 @@ String|Object<province: String, city: String>|String|File|String|String|String|S
 
 ### ***Table Name: Submissions***
 
-|submitter|organization|status|resume|
+|submitter|requirement|status|resume|
 |:-:|:-:|:-:|:-:|
-|Pointer< User >|Pointer< Organization >|*Status Code*|File|
+|Pointer< User >|Pointer< Requirement >|*Status Code*|File|
 
 *Status Code*
 - 0 = 已终止
