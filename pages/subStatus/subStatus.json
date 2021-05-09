@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+  "navigationBarTitleText": "投递进度",
+  "backgroundColor": "#eee"
 }
