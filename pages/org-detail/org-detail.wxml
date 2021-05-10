@@ -1,5 +1,7 @@
 <view class="info">
-  <image src="{{organization.logo.url}}" class="icon" mode="widthFix"></image>
+  <view class="org-detail-logo-wrap">
+    <image src="{{organization.logo.url}}" mode="widthFix"></image>
+  </view>
   <view class="infotext">
     <view class="infotitle">{{organization.name}}</view>
     <view class="manytag">

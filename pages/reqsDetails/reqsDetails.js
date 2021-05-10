@@ -6,14 +6,12 @@ const util = require('../../utils/util.js');
 Page({
     data: {
         requirement: {},
-        imgUrl: '',
-        intro: '',
-        serviceField: [],
         didFavorite: false,
         didSubmitForThisReq: false,
         startTime: '',
         endTime: '',
         req_objId: '',
+        intro:'123'
     },
     onLoad: function(options) {
         console.log(options)
@@ -29,11 +27,12 @@ Page({
     //获取requirement
     getRequirement() {
         const query = new AV.Query('Requirement');
+        query.include('organization')
         query.get(this.data.req_objId).then((requirement) => {
+            const orga = requirement.get('organization'); //获取organization  
             this.setData({
                 requirement: requirement.toJSON()
             })
-            this.getOrganization();
             //转换时间
             const stime = util.formatTime(this.data.requirement.work_length.startTime);
             const etime = util.formatTime(this.data.requirement.work_length.endTime);
@@ -43,18 +42,6 @@ Page({
             })
         });
 
-    },
-    //获取organization
-    getOrganization() {
-        const query = new AV.Query('Organization');
-        query.get(this.data.requirement.organization.objectId).then((organization) => {
-            organization = organization.toJSON()
-            this.setData({
-                imgUrl: organization.logo.url,
-                intro: organization.intro,
-                serviceField: organization.service_fields
-            })
-        });
     },
 
     updateFavoriteStatus: function() {

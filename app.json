@@ -1,6 +1,7 @@
 {
     "pages": [
         "pages/reqsPage/reqsPage", 
+        "pages/org-detail/org-detail",
         "pages/reqsDetails/reqsDetails", 
         "pages/reqsDetails/submit/submit", 
         "pages/me/me", 
