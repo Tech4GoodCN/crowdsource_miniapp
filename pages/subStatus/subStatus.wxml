@@ -1,2 +1,40 @@
 <!--pages/subStatus/subStatus.wxml-->
-<text>功能开发中</text>
+<view class="grid-item-container">
+  <block wx:if="{{hasSubmission==false}}">
+    <element class = "defaultText">
+      <view>盯着我看啥？</view>
+      <view>赶紧投递！</view>
+    </element>
+  </block>
+
+  <block wx:for="{{submissions}}" wx:key="this">
+    <view class="container" >
+        <view class="box" data-req_objId="{{item.objectId}}"style="background-color: #C4C4C4;">
+            <view class="title">{{item.requirement.project_name.name}}-{{item.requirement.organization_name}}</view>
+            <div wx:if="{{item.status==420}}">
+              <image src = "/image/Sub0.png" class = "bar"></image>
+            </div>
+            <div wx:elif="{{item.status==1}}">
+              <image src = "/image/Sub1.png" class = "bar"></image>
+            </div>
+            <div wx:elif="{{item.status==2 || item.status==0}}">
+              <image src = "/image/Sub2.png" class = "bar"></image>
+            </div>
+
+            <view class="bottom">
+              
+              <view class = "submitted">已投递</view>
+              <div wx:if="{{item.status==0}}">
+                <view class = "ended">已终止</view>
+              </div>
+              <div wx:else>
+
+                <view class = "mid">已被录用</view>
+                <view class = "ended">已完成任务</view>
+              </div>
+            </view>
+        </view>
+    </view>
+</block>
+</view>
+
