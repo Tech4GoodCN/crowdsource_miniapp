@@ -6,7 +6,6 @@
         "pages/reqsDetails/submit/submit", 
         "pages/me/me", 
         "pages/orgs/orgs", 
-        "pages/org-detail/org-detail",
         "pages/favorites/favorites",
         "pages/subStatus/subStatus"
     ],
