@@ -18,16 +18,18 @@
 </view>
 
 <view class="info">
-    <image src="{{imgUrl}}" class="icon" mode="widthFix"></image>
+    <view class="req-logo-wrap">
+        <image src="{{requirement.organization.logo.url}}" class="req-logo" mode="widthFix"></image>
+    </view>
     <view class="infotext">
         <view class="infotitle">{{requirement.organization_name}}</view>
         <view class="manytag">
-            <block wx:for="{{serviceField}}" wx:key="this">
+            <block wx:for="{{requirement.organization.service_fields}}" wx:key="this">
                 <view class="tag3">{{item}}</view>
             </block>
         </view>
         <view class="infocontent">
-            <text class="organization-intro">{{intro}}</text>
+            <text class="organization-intro">{{requirement.organization.intro}}</text>
         </view>
     </view>
 </view>
