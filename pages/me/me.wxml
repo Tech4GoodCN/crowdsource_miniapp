@@ -18,7 +18,26 @@
     </view>
 </view>
 
-<image src="/image/xinxi.png" class="xinxi"></image>
+<!--
+<image src="/image/about.png" class="xinxi"></image>
 <image src="/image/about.png" class="xinxi2"></image>
 <view class="yijian">意见反馈</view>
 <view class="guanyu">关于我们</view>
+
+<button open-type="feedback" class="xinxi">
+    <image src="/image/about.png" class="xinxi"></image>
+</button>
+-->
+
+<view class="btm">
+<button class='btn1' open-type='feedback'>
+    <image class='btnImg' src='/image/message.png'></image>
+    <view>意见反馈</view>
+ </button>
+
+
+  <button class='btn2'>
+    <image class='btnImg' src='/image/information.png'></image>
+    <view>关于我们</view>
+ </button>
+ </view>

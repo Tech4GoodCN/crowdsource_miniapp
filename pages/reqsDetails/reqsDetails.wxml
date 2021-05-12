@@ -18,16 +18,18 @@
 </view>
 
 <view class="info">
-    <image src="{{imgUrl}}" class="icon" mode="widthFix"></image>
+    <view class="req-logo-wrap">
+        <image src="{{requirement.organization.logo.url}}" class="req-logo" mode="widthFix"></image>
+    </view>
     <view class="infotext">
         <view class="infotitle">{{requirement.organization_name}}</view>
         <view class="manytag">
-            <block wx:for="{{serviceField}}" wx:key="this">
+            <block wx:for="{{requirement.organization.service_fields}}" wx:key="this">
                 <view class="tag3">{{item}}</view>
             </block>
         </view>
         <view class="infocontent">
-            <text class="organization-intro">{{intro}}</text>
+            <text class="organization-intro">{{requirement.organization.intro}}</text>
         </view>
     </view>
 </view>
@@ -35,13 +37,13 @@
 <view class="title2">ObjectId（仅测试用）</view>
 <view class="content2">{{req_objId}}</view>
 <view class="title2">服务受众</view>
-<view class="content2">{{requirement.people_covered}}</view>
+<view class="content2" style="white-space:pre-wrap">{{requirement.people_covered}}</view>
 <view class="title3" hidden="{{requirement.project_intro.isDaily}}">任务背景</view>
-<view class="content2">{{requirement.project_intro.intro}}</view>
+<view class="content2" style="white-space:pre-wrap">{{requirement.project_intro.intro}}</view>
 <view class="title3">任务职责</view>
 <view class="content2">{{requirement.task_intro}}</view>
 <view class="title3">报名要求</view>
-<view class="content2">{{requirement.signup_reqs}}</view>
+<view class="content2" style="white-space:pre-wrap">{{requirement.signup_reqs}}</view>
 <view style="height:130rpx;width:100%;"></view>
 <view class="container">
   <button class="{{!didSubmitForThisReq?'submit':'submitted'}}" bindtap="submit">{{!didSubmitForThisReq?'投递简历':'已投递'}}</button>
