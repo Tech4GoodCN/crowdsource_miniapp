@@ -1,5 +1,7 @@
 <view class="info">
-  <image src="{{organization.logo.url}}" class="icon" mode="widthFix"></image>
+  <view class="org-detail-logo-wrap">
+    <image src="{{organization.logo.url}}" mode="widthFix"></image>
+  </view>
   <view class="infotext">
     <view class="infotitle">{{organization.name}}</view>
     <view class="manytag">
@@ -24,15 +26,15 @@
 <block wx:if="{{TabCur==0}}">
   <view class="wrap">
     <view class="title2">组织介绍</view>
-    <text class="content2">{{organization.intro}}</text>
+    <text class="content2" style="white-space:pre-wrap">{{organization.intro}}</text>
     <view class="title2">组织相册</view>
     <block wx:for="{{organization.photos}}" wx:key="this">
       <image src="{{item}}" mode="aspectFit" class="orgPhoto"></image>
     </block>
     <view class="title2">组织官网</view>
-    <text class="content2">{{organization.website_or_id}}</text>
+    <text class="content2" style="white-space:pre-wrap">{{organization.website_or_id}}</text>
     <view class="title2">影响力</view>
-    <text class="content2">{{organization.achievements}}</text>
+    <text class="content2" style="white-space:pre-wrap">{{organization.achievements}}</text>
     <view style="height:150rpx;width:100%;"></view>
 </view>
 </block>

@@ -2,7 +2,9 @@
     <block wx:for="{{organizations}}" wx:key="this">
         <view class="grid-item-child ">
             <view class="info" bindtap="orgDetail" data-org_objId="{{item.objectId}}">
-                <image src="{{item.logo.url}}" class="icon" mode="widthFix"></image>
+                <view class="org-logo-wrap">
+                     <image src="{{item.logo.url}}" mode="widthFix"></image>
+                </view>
                 <view class="infotext">
                     <view class="infotitle">{{item.name}}</view>
                     <view class="manytag">

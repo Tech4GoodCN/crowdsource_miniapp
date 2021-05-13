@@ -38,7 +38,7 @@
     font-size: 16px;
     line-height: 22px;
     color: #000000;
-    padding: 30rpx;
+    margin: 30rpx;
 }
 
 .tag1 {
@@ -93,13 +93,23 @@
     display: flex;
     flex-direction: row;
 }
-
+.avatar-wrap {
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+    margin-left: 30rpx;
+    margin-right: 25rpx;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .avatar {
     width: 60rpx;
     height: 60rpx;
     border-radius: 50%;
-    margin: 25rpx;
-    margin-top: 30rpx;
+    margin-left: 25rpx;
+    margin-right: 25rpx;
 }
 
 .name {
@@ -120,6 +130,7 @@
 }
 
 .bottom {
+    margin-top: 25rpx;
     display: flex;
     flex-direction: row;
     align-items: center;
