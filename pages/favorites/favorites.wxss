@@ -401,13 +401,24 @@ page {
       flex-direction: row;
     }
     
-    .avatar{
-      width: 60rpx; 
-      height: 60rpx; 
+    .avatar-wrap {
+      width: 60rpx;
+      height: 60rpx;
       border-radius: 50%;
-      margin:25rpx;
-      margin-top: 30rpx;
-    }
+      margin-left: 30rpx;
+      margin-right: 25rpx;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  .avatar {
+      width: 60rpx;
+      height: 60rpx;
+      border-radius: 50%;
+      margin-left: 25rpx;
+      margin-right: 25rpx;
+  }
     
     .name{
       font-family: PingFang SC;
@@ -428,6 +439,7 @@ page {
     
     
     .bottom {
+      margin-top: 25rpx;
       display: flex;
       flex-direction: row;
       align-items: center;
