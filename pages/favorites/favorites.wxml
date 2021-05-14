@@ -8,7 +8,9 @@
                 </block>
             </view>
             <view class="bottom">
-                <image src="{{imgurl}}" class="avatar" mode="widthFix"></image>
+                <view class="avatar-wrap">
+                    <image src="{{item.organization.logo.url}}"  mode="widthFix"></image>
+                </view>
                 <text class="name">{{item.organization_name}}</text>
                 <view class="location">
                     <text>{{item.location.city}}/</text>

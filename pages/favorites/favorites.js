@@ -5,7 +5,8 @@ const AV = require('../../libs/av-core-min.js');
 const getDataForRender = fetchedObjects => fetchedObjects.toJSON();
 Page({
     data: {
-        requirementList: []
+        requirementList: [],
+        organizations:[]
     },
     // 事件处理函数
     onLoad() {
@@ -18,21 +19,21 @@ Page({
             title: '加载中',
         })
         const favs = currentUser.get('favorites');
-        // console.log("favs is: " + favs);
-
+        //console.log("favs is: " + favs);
         if (favs != null) {
-            var favObjs = []
             var i;
+            const query = new AV.Query('Requirement');
+            query.include('organization')
             for (i in favs) {
-                var favId = favs[i];
-                favObjs.push(AV.Object.createWithoutData('Requirement', favId));
+                const favId = favs[i];
+                query.get(favId).then((requirementLists) => {
+                        const orga = requirementLists.get('organization');
+                        this.setData({
+                            requirementList: this.data.requirementList.concat(requirementLists.toJSON())
+                        })
+                    })
+                    .catch(console.error)
             }
-            AV.Object.fetchAll(favObjs).then((fetchedObjects) => {
-                console.log(fetchedObjects.map(getDataForRender))
-                this.setData({
-                    requirementList: fetchedObjects.map(getDataForRender)
-                })
-            })
             wx.hideLoading();
         }
     },
