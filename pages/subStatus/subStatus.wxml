@@ -9,7 +9,7 @@
 
   <block wx:for="{{submissions}}" wx:key="this">
     <view class="container" >
-        <view class="box" data-req_objId="{{item.objectId}}"style="background-color: #C4C4C4;">
+        <view class="box" data-req_objId="{{item.objectId}}"style="background-color: #ffffff;">
             <view class="title">{{item.requirement.project_name.name}}-{{item.requirement.organization_name}}</view>
             <div wx:if="{{item.status==420}}">
               <image src = "/image/Sub0.png" class = "bar"></image>
@@ -30,7 +30,7 @@
               <div wx:else>
 
                 <view class = "mid">已被录用</view>
-                <view class = "ended">已完成任务</view>
+                <view class = "ended">已完成</view>
               </div>
             </view>
         </view>
