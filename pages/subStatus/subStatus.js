@@ -38,6 +38,7 @@ Page({
       title: '加载中',
     })
     const query = new AV.Query('Submission');
+    query.equalTo('submitter', AV.User.current());
     query.include('requirement');
     console.log("DEBUG: RUNNING QUERY...");
     //query.skip(this.data.submissions.length).limit(12);

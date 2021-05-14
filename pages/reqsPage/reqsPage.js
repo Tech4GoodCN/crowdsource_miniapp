@@ -13,7 +13,22 @@ Page({
     },
     // 事件处理函数
     onLoad() {
-        this.getRequirement(true)
+        var page = this;
+        wx.checkSession({
+            success() {
+                // session_key 未过期，并且在本生命周期一直有效
+                AV.User.loginWithMiniApp().catch(console.error);
+                page.getRequirement(true)
+            },
+            fail() {
+                wx.login() //重新登录
+                AV.User.loginWithMiniApp().catch(console.error);
+                page.getRequirement(true)
+            }
+        })
+    },
+    onShow() {
+
     },
     getRequirement(shouldLazyLoad) {
         wx.showLoading({

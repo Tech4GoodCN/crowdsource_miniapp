@@ -34,8 +34,6 @@
     </view>
 </view>
 
-<view class="title2">ObjectId（仅测试用）</view>
-<view class="content2">{{req_objId}}</view>
 <view class="title2">服务受众</view>
 <view class="content2" style="white-space:pre-wrap">{{requirement.people_covered}}</view>
 <view class="title3" hidden="{{requirement.project_intro.isDaily}}">任务背景</view>

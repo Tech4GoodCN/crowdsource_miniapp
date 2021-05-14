@@ -6,14 +6,15 @@ const getDataForRender = fetchedObjects => fetchedObjects.toJSON();
 Page({
     data: {
         requirementList: [],
-        organizations:[]
     },
     // 事件处理函数
-    onLoad() {
+    onShow() {
         this.saved()
     },
     // if saved
     saved: function() {
+        this.data.requirementList = [];
+
         const currentUser = AV.User.current();
         wx.showLoading({
             title: '加载中',
