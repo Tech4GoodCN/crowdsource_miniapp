@@ -47,9 +47,7 @@ Page({
     updateFavoriteStatus: function() {
         const currentUser = AV.User.current();
         const favs = currentUser.get('favorites');
-
         // console.log("curr user favs is: " + favs);
-
         this.setData({
             didFavorite: favs != null && favs.includes(this.data.req_objId)
         })
