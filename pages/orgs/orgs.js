@@ -32,7 +32,7 @@ Page({
   },
   orgDetail(e) {
     const org_objId = e.currentTarget.dataset.org_objid; 
-    console.log(org_objId)
+    // console.log(org_objId)
     wx.navigateTo({
       url: '/pages/org-detail/org-detail?org_objId=' + JSON.stringify(org_objId),
     })

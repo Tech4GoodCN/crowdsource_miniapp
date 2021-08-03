@@ -14,7 +14,7 @@ Page({
         intro:'123'
     },
     onLoad: function(options) {
-        console.log(options)
+        // console.log(options)
         this.setData({
             req_objId: JSON.parse(options.req_objId)
         })
@@ -48,7 +48,7 @@ Page({
         const currentUser = AV.User.current();
         const favs = currentUser.get('favorites');
 
-        console.log("curr user favs is: " + favs);
+        // console.log("curr user favs is: " + favs);
 
         this.setData({
             didFavorite: favs != null && favs.includes(this.data.req_objId)
@@ -60,7 +60,7 @@ Page({
         const currentUser = AV.User.current();
         const submissions = currentUser.get('submissions');
 
-        console.log("curr user submissions is: " + submissions);
+        // console.log("curr user submissions is: " + submissions);
 
         this.setData({
             didSubmitForThisReq: submissions != null && submissions.includes(this.data.req_objId)

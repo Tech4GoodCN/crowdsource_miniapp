@@ -42,7 +42,7 @@ Page({
                     const currentUser = AV.User.current();
                     currentUser.add('submissions', objId);
                     currentUser.save().then((todo) => {
-                        console.log('Successfully submitted');
+                        // console.log('Successfully submitted');
                         wx.showToast({
                             title: '上传成功！',
                             icon: 'success',
