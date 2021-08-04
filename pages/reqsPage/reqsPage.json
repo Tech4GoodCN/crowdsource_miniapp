@@ -1,4 +1,5 @@
 {
     "usingComponents": {},
-    "navigationBarTitleText": "康康有哪些好的项目 👀"
+    "navigationBarTitleText": "康康有哪些好的项目 👀","backgroundColorTop": "#FFFFFF", 
+    "backgroundColor": "#F1F1F1"
 }

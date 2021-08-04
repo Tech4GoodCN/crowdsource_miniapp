@@ -21,7 +21,7 @@ Page({
         })
         const favs = currentUser.get('favorites');
         //console.log("favs is: " + favs);
-        if (favs != null) {
+        if (favs != []) {
             var i;
             const query = new AV.Query('Requirement');
             query.include('organization')
@@ -35,14 +35,14 @@ Page({
                     })
                     .catch(console.error)
             }
-            AV.Object.fetchAll(favObjs).then((fetchedObjects) => {
-                // console.log(fetchedObjects.map(getDataForRender))
-                this.setData({
-                    requirementList: fetchedObjects.map(getDataForRender)
-                })
-            })
-            wx.hideLoading();
+            // AV.Object.fetchAll(favObjs).then((fetchedObjects) => {
+            //     // console.log(fetchedObjects.map(getDataForRender))
+            //     this.setData({
+            //         requirementList: fetchedObjects.map(getDataForRender)
+            //     })
+            // }) 
         }
+        wx.hideLoading();
     },
     showDetailPage: function(e) {
         var req_objId = e.currentTarget.dataset.req_objid; // need to be all lowercase; i.e. can't be dataset.req_objId

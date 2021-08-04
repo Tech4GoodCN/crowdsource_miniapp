@@ -32,7 +32,7 @@ Page({
     },
     getRequirement(shouldLazyLoad) {
         wx.showLoading({
-            title: '加载中',
+            title: '加载中'
         })
         const query = new AV.Query('Requirement');
         query.include('organization')

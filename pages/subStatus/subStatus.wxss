@@ -2,23 +2,23 @@
 
 /* 盯着我看啥？ 抓紧投递：） */
 .defaultText{
-position: absolute;
-left: 26.67%;
-right: 26.4%;
-top: 50%;
-bottom: 50%;
+  position: absolute;
+  left: 26.67%;
+  right: 26.4%;
+  top: 50%;
+  bottom: 50%;
 
-font-family: PingFang SC;
-font-style: normal;
-font-weight: normal;
-font-size: 16px;
-line-height: 150%;
-/* or 24px */
-display: flex;
-align-items: center;
-text-align: center;
+  font-family: PingFang SC;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 150%;
+  /* or 24px */
+  display: flex;
+  align-items: center;
+  text-align: center;
 
-color: #4F4F4F;
+  color: #4F4F4F;
 }
 
 .grid-item-container {
@@ -89,11 +89,9 @@ color: #4F4F4F;
   width: 340px;
   height: 130px;
   margin-top: 30rpx;
-  margin-left: 10%;
   background: #FFFFFF;
   box-shadow: 0px 4px 14px rgba(189, 187, 187, 0.25);
   border-radius: 8px;
-
 }
 
 .title {

@@ -13,13 +13,11 @@ App({
         AV.init({
             appId: 'NdCkOyRxT5xXE7VA9GLyAXCf-gzGzoHsz',
             appKey: 'n55hgBBMiWT1iSSPcqiSAOOQ',
-            serverURLs: 'https://api.tech4good.tech',
+            // serverURLs: 'https://api.tech4good.org.cn',
+            serverURLs: 'https://ndckoyrx.lc-cn-n1-shared.com'
         });
     },
     globalData: {
-        userInfo: null,
-        leancloudId: 'NdCkOyRxT5xXE7VA9GLyAXCf-gzGzoHsz',
-        leancloudKey: 'n55hgBBMiWT1iSSPcqiSAOOQ',
-        leancloudURL: 'https://api.tech4good.tech'
+        userInfo: null
     }
 })

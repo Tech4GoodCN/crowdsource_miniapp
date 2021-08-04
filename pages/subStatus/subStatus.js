@@ -22,7 +22,6 @@ Page({
     //this.hasSubmissions();
     console.log("running getSubmissions")
     this.getSubmissions();
-    
   },
 
   hasSubmissions(){
@@ -52,7 +51,9 @@ Page({
       
       console.log("setting data retrieved");
       console.log("SUBMISSIONS LENGTH: "+this.data.submissions.length);
-      
+      if (this.data.submissions.length>0){
+        this.hasSubmissions();
+      }
     })
     wx.hideLoading()
   },
