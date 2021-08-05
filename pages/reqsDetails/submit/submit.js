@@ -30,12 +30,12 @@ Page({
                 submission.set('submitter', currentUser);
                 const requirement = AV.Object.createWithoutData('Requirement', objId);
                 submission.set('requirement', requirement);
-                
+
                 const avFile = new AV.File(tempFile['name'], {
-                        blob: {
-                            uri: tempFile['path'],
-                        },
-                    })
+                    blob: {
+                        uri: tempFile['path'],
+                    },
+                })
                 submission.set('resume', avFile);
                 submission.set('status', 420)
                 submission.save().then(function(res) {
@@ -52,21 +52,21 @@ Page({
                             wx.navigateBack({
                                 delta: 1,
                             })
-                        }, 2000); 
+                        }, 2000);
                     }, (error) => {
                         wx.showToast({
                             title: '上传失败，请重新上传',
                             icon: 'none',
                             duration: 2000 //持续的时间
                         })
-                    });          
+                    });
 
-                }, function(error){
+                }, function(error) {
                     console.error('Failed to create new object, with error message: ' + error.message);
                 });
             },
             fail() {
-                console.log('choose file error')
+                // console.log('choose file error')
             }
         })
     }

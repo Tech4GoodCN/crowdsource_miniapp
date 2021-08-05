@@ -36,7 +36,7 @@ Page({
                     .catch(console.error)
             }
             // AV.Object.fetchAll(favObjs).then((fetchedObjects) => {
-            //     // console.log(fetchedObjects.map(getDataForRender))
+            //     console.log(fetchedObjects.map(getDataForRender))
             //     this.setData({
             //         requirementList: fetchedObjects.map(getDataForRender)
             //     })
